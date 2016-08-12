@@ -1,4 +1,4 @@
-# The _**this**_ keyword
+# The **_this_** keyword
 
 The this keyword is always **confusing**. Especially when functions are invoked in different ways:
 
@@ -12,19 +12,21 @@ Sometimes it looks even **more confusing** when combined with `=>` arrow functio
 ### 1. Regular functions & Arrow functions
 
 ```js
-function test() {
+// a constructor
+function Calculator() {
+    // object inside the constructor
     this.calculate = {
       array: [1, 2, 3],
-      sum: () => {
-        console.log(this); // => ???
+      sum1: () => {
+        console.log(this);
       },
       sum2() {
-        console.log(this); // => ???  
+        console.log(this);
       }
     };
 };
-var t = new test();
-t.calculate.sum();
-t.calculate.sum2();
+var cal = new Calculator();
+cal.calculate.sum1();        // ?
+cal.calculate.sum2();        // ?
 ```
 
