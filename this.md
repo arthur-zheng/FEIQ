@@ -9,7 +9,7 @@ The this keyword is always **confusing**. Especially when functions are invoked 
 
 Sometimes it looks even **more confusing** when combined with `=>` arrow functions. Do you know what does the following code snippets log?
 
-### 1. As a Method, As in Java
+### 1. As a Method, as in Java
 ```js
 const jon = {    
     firstName: 'Jon',    
@@ -87,10 +87,10 @@ Takeaway: Steps when a constructor is called \(in the above code for example\):
 2. pass the newly created object `Tom` as _this_ into to the constructor \(`Student()`\).
 3. Go through the constructor.
 
-So, in here, the this will be the new object, `Tom`.
+So, in here, the `this` will be the new object, `Tom`.
 
 ### 4. As with `apply()`, `call()` and `bind()`
-Since this is so flexible, what if sometime we want to mannally control the this? `apply()` `call()` and `bind()` was created to do this.
+Since this is so flexible, what if sometime we want to mannally control the this? `apply()`, `call()` and `bind()` was created to do this.
 ```js
 function showFullName() {
     return `${this.firstName} ${this.lastName}`;
@@ -150,7 +150,7 @@ function test() {
 }
 test();
 ```
-We can tell the arrow function binds _the scope which wraps the outside object_ with _this_.
+We can tell is that, the arrow function binds _the scope which wraps the outside object_ with _this_.
 
 ### References:
 1. _Understanding Javascript's this With Clarity, and Master It_: [http:\/\/javascriptissexy.com\/understand-javascripts-this-with-clarity-and-master-it\/](http://javascriptissexy.com/understand-javascripts-this-with-clarity-and-master-it/)
