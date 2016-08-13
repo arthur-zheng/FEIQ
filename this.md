@@ -6,7 +6,7 @@ The this keyword is always **confusing**. Especially when functions are invoked 
 2. As purely function, like `foo()`
 3. As a constructor, like `new Student()`
 4. Indirectly using `apply()`, `call()` or `bind()`
-5. Inside some special functions such as `setTimeout()`(as callback)
+5. As callback in `setTimeout()`,`forEach()` etc.
 
 Sometimes it looks even **more confusing** when combined with `=>` arrow functions. Do you know what does the following code snippets log?
 
