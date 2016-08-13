@@ -12,13 +12,13 @@ Thanks again for reading.
 
 ### Content Includes:
 
-1. Javascript Questions `in progress`
-2. HTML\/CSS Questions `future`
-3. Algorithoms `future`
+1. Javascript Questions    `in progress`
+2. HTML\/CSS Questions     `future`
+3. Algorithms              `future`
 
 ### Special Thanks to and Recommended:
- 1. Stack overflow
- 2. javascriptissexy.com
+ 1. www.Stackoverflow.com
+ 2. www.javascriptissexy.com
  3. ...
 
 ### References:
@@ -26,4 +26,4 @@ Thanks again for reading.
  2. 
  3. 
 
-### Long live Javascript!
+Long live Javascript!
