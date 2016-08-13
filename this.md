@@ -6,6 +6,7 @@ The this keyword is always **confusing**. Especially when functions are invoked 
 2. As purely function, like `foo()`
 3. As a constructor, like `new Student()`
 4. Indirectly using `apply()`, `call()` or `bind()`
+5. Inside some special functions such as `setTimeout()`(as callback)
 
 Sometimes it looks even **more confusing** when combined with `=>` arrow functions. Do you know what does the following code snippets log?
 
@@ -104,7 +105,35 @@ showFullName.apply(jon);       // 'Jon Snow'
 showFullName.call(jon);        // 'Jon Snow'
 showFullName.bind(jon)();      // 'Jon Snow'
 ```
-### 5. Arrow functions
+### 5. Special Functions (or callback)
+```js
+if (this.options.destroyOnHide) {
+    setTimeout(function() { 
+        this.tip.destroy()
+    }, 1000);
+}
+// will not work as expected, `this` will become window inside the callback.
+```
+
+The this will become undefined in callbacks. Why? because most of the cases, callback is invoked in pure function form.
+
+How to fix?
+```js
+// Using that
+var that = this;
+if (this.options.destroyOnHide) {
+    setTimeout(function() {
+        that.tip.destroy()
+    }, 1000);
+}
+
+// or use bind (cleaner, better way)
+if (this.options.destroyOnHide) {
+    setTimeout(this.tip.destroy.bind(this.tip), 1000);
+}
+```
+
+### 4. Arrow Functions
 
 In ECMAScript 6, arraw functions was introduced. One of arrow function's features is that it **automatically** bind _this_ for you.
 ```js
@@ -154,4 +183,4 @@ We can tell is that, the arrow function binds _the scope which wraps the outside
 
 ### References:
 1. _Understanding Javascript's this With Clarity, and Master It_: [http:\/\/javascriptissexy.com\/understand-javascripts-this-with-clarity-and-master-it\/](http://javascriptissexy.com/understand-javascripts-this-with-clarity-and-master-it/)
-2. 
+2. _setTimeout_ (@stackoverflow): http://stackoverflow.com/questions/2130241/pass-correct-this-context-to-settimeout-callback
