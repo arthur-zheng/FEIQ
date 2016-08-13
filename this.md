@@ -108,16 +108,36 @@ showFullName.call(jon);        // 'Jon Snow'
 showFullName.bind(jon)();      // 'Jon Snow'
 ```
 ### 5. Special Functions (As callback)
+`setTimeout` is a popular one among interviewers:
 ```js
 if (this.options.destroyOnHide) {
     setTimeout(function() { 
         this.tip.destroy()
     }, 1000);
 }
-// will not work as expected, `this` will become window inside the callback.
+// Question: what will happen?
 ```
-
-The this will become undefined in callbacks. Why? because most of the cases, callback is invoked in pure function form. Like:
+Answer is code will not work as expected, `this` will become window inside the callback. Sometimes I hope them test me something else such as `forEach()`:
+```js
+var Daenerys = {
+    home: "King's landing",
+    dragons: [
+        {name: 'Drogon', location: 'The Wall'},
+        {name: 'Rhaegal', location: 'Castel Black'},
+        {name: 'Viserion', location: 'Winterfell'}
+    ],
+    // trying to set all dragon's location to Daenerys' home
+    dragonsGoHome() {
+        // put a callback into forEach()
+        this.dragons.forEach(function(dragon) {
+            dragon.position = this.home;        // this === window
+        });
+    }
+}
+Daenerys.dragonAttack();
+Daenerys.dragons[0].home;    // undefined
+```
+The this will become `window` again in the callbacks. Why? because most of the cases, callback is invoked in pure function form. Like:
 ```js
 // a function supports callback
 function fooWithCallback(callback) {
