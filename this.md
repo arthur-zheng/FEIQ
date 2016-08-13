@@ -45,7 +45,7 @@ console.log(this.a)       // 100
 So, the `foo`\( or `window.foo`\) was invoked and the **default**`this`\( or`window`\) was logged.
 
 **Takeaway**: In browser, `window` is the default `this`.
-A little bit more tricky:
+A little bit more tricky in here combining tip-1 and tip-2:
 
 ```js
 const jon = {
@@ -55,8 +55,10 @@ const jon = {
         console.log(`${this.firstName} ${this.lastName}`)
     }
 }
+// pull the funtion out
 const fullNameOutside = jon.fullName;
-fullNameOutsite();            // undefined
+// invoke it as pure function
+fullNameOutsite();            // "undefined undefined", as this is window
 ```
 **Takeaway**: When invoked as function, **Only** pay attention to the stuff before the **dot**, if there's no dot, `window` will be used as **this**.
 
