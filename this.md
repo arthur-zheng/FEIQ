@@ -25,17 +25,20 @@ const jon = {
          }
      }
 }
+// jon [dot] fullName()
 jon.fullName();                // "Jon Snow"
+// jon.weapon [dot] use()
 jon.weapon.use();              // "Pew, Longclaw used."
 ```
 Invoked as method works the same as Java.
 
-`fullName` method was invoked as a method of `jon`. Because there is a 'jon.' right before it. So `jon` will passed into `fullName()` as its `this`.
+`fullName` method was invoked as a method of `jon`. Because there is a `jon.` right before it. So `jon` will passed into `fullName()` as its `this`. Samely, `jon.weapon` was passed into `use()` as `this`.
 
-**Takeaway**: _Anything_ before the **dot** will passed into the method as the method's `this` keyword.
+**Takeaway**: _Anything_ before the last **[dot]** will be passed into the method as the method's `this` keyword.
 
-But nothing or dot was before the function? Read on.
-### 2. As Function
+But there's nothing or even [dot] before the function? Read on.
+
+### 2. As Purely Function
 
 ```js
 function foo() {
@@ -71,7 +74,7 @@ const fullNameOutside = jon.fullName;
 // invoke it as pure function
 fullNameOutsite();            // "undefined undefined", as this is window
 ```
-Since there's nothing or dot before the `fullNameOutside`, it is invoked as a **pure function**, thus `window` will be the `this`.
+Since there's nothing or [dot] before the `fullNameOutside`, it is invoked as a **pure function**, thus `window` will be the `this`.
 
 **Takeaway**: Where/how a functions was **declared** is much less important than **how** the function was **invoked**.
 
@@ -88,15 +91,15 @@ const Tom = new Student(10092);
 
 **Takeaway**: What happends when a constructor is invoked \(in the above code for example\):
 
-1. A new empty object {}.
+1. A new empty object `{}` was created.
 2. Tom was pointed to the new empty object.
-3. `Tom` was passed into to the constructor \(`Student()`\) as `this`.
+3. `Tom` was passed into to the constructor `Student()` as `this`.
 3. Execute the constructor.
 
-So, in here, the `this` will be the new object, `Tom`.
+So, in here, the `this` will be the new instance object `Tom`.
 
 ### 4. As with `apply()`, `call()` and `bind()`
-Since this is so flexible, what if sometime we want to mannally control the this? `apply()`, `call()` and `bind()` was created to do this.
+Since this is so flexible, what if sometime we want to mannally control the `this`? `apply()`, `call()` and `bind()` was created to do solve this problem.
 ```js
 function showFullName() {
     return `${this.firstName} ${this.lastName}`;
@@ -141,16 +144,16 @@ const daenerys = {
 daenerys.dragonAttack();
 daenerys.dragons[0].home;    // undefined
 ```
-The this will become `window` again in the callbacks. Why? because most of the cases, callback is invoked in pure function form. Like:
+The this will become `window` again in the callbacks. Why? because most of the cases, callback is invoked in purely function form. Like:
 ```js
 // a function supports callback
-function fooWithCallback(callback) {
-    // do some stuff such as DOM manipulating
+function deleteDomNodesWithCallback(parentNode, callback) {
+    // do the deleting stuff
     ...
-    // callback is invoked after, as a pure function
+    // callback is invoked as a purely function
     callback();
 }
-fooWithCallback(iAmCallback() {...});
+deleteDomNodesWithCallback(iAmTheNode, iAmCallback);
 ```
 How to **fix** `this`?
 ```js
@@ -167,25 +170,25 @@ if (this.options.destroyOnHide) {
     setTimeout(this.tip.destroy.bind(this.tip), 1000);
 }
 ```
-And a fix for Daenerys of course:
+And at last a fix for Daenerys:
 ```js
 var daenerys = {
 ...
  dragonsGoHome() {
-    // `that`
+    var _that = this;         // created for demo purpose
     this.dragons.forEach(function(dragon) {
         // inside the callback
         dragon.location = this.home;
-    }.bind(this));           // `this` equals `that`
+    }.bind(this));           // `this` equals to _that
  }
 ...
-// daenerys DOT dragonsGoHome
+// daenerys [dot] dragonsGoHome
 daenerys.dragonsGoHome();
 ```
 Since this part once confused me for a long time, allow me to explain it again:
 
 1. When we call `daenerys.dragonsGoHome()`, we pass `daenerys` into method `dragonsGoHome()` as `this`.
-2. Ok, so inside `dragonsGoHome`, `this` equals to `daenerys` object.
+2. So inside `dragonsGoHome`, `this` equals to `daenerys` object.
 3. The `bind(this)` is inside the same context/this-scope as `dragonsGoHome()`. So `this` equals `daenerys`.
 
 ### 4. Arrow Functions
