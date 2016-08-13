@@ -56,18 +56,16 @@ const jon = {
     }
 }
 const fullNameOutside = jon.fullName;
-fullNameOutsite();        // undefined
+fullNameOutsite();            // undefined
 ```
-
-
+**Takeaway**: When invoked as function, **Only** pay attention to the stuff before the **dot**, if there's no dot, `window` will be used as **this**.
 
 ### 3. As Constructor
-
 ```js
 // a constructor
 function Student(id) {
     this.id = id;
-    console.log(this.id);    // ?
+    console.log(this.id);      // ?
 }
 // new instance
 const Tom = new Student(10092);
@@ -85,7 +83,7 @@ So, in here, the this will be the new object, `Tom`.
 Since this is so flexible, what if sometime we want to mannally control the this? `apply()` `call()` and `bind()` was created to do this.
 ```js
 function showFullName() {
-    console.log(`${this.firstName} ${this.lastName}`);
+    return `${this.firstName} ${this.lastName}`;
 }
 showFullName();                // error, firstName and lastName are undefined
 const jon = {
@@ -102,34 +100,27 @@ In ECMAScript 6, arraw functions was introduced. One of arrow function's feature
 ```js
 const jon = {
     firstName: 'Jon',
-    lastName:  'Snow',
+    lastName: 'Snow',
     fullName: () => `${this.firstName} ${this.lastName}`,
     getThis: () => this
 }
 jon.fullName();                // "undefined undefined"
 jon.getThis();                 // window
-```
 
-```js
-// a constructor
-function Calculator() {
-    // object inside the constructor
-    this.calculate = {
-      array: [1, 2, 3],
-      sum1: () => {
-        console.log(this);
-      },
-      sum2() {
-        console.log(this);
-      }
-    };
-};
-var cal = new Calculator();
-cal.calculate.sum1();        // ?
-cal.calculate.sum2();        // ?
+// inside test() scope
+function test() {
+    const jon = {
+        firstName: 'Jon',
+        lastName: 'Snow',
+        fullName: () => `${this.firstName} ${this.lastName}`,
+        getThis: () => this
+    }
+    jon.fullName();             // "undefined undefined"
+    jon.getThis();              // window
+}
+test();
 ```
-
-### Ref:
+### References:
 
 1. _Understanding Javascript's this With Clarity, and Master It_: [http:\/\/javascriptissexy.com\/understand-javascripts-this-with-clarity-and-master-it\/](http://javascriptissexy.com/understand-javascripts-this-with-clarity-and-master-it/)
 
