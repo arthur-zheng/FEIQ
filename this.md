@@ -2,9 +2,9 @@
 
 The this keyword is always **confusing**. Especially when functions are invoked in different ways:
 
-1. Object's method, like `obj.foo()`, this is exactly the same as most languages, such as java.
-2. Purely as function, like `foo()`
-3. Constructor, like `new Student()`
+1. As a method, like `obj.foo()`, this is exactly the same as most languages, such as java.
+2. As purely function, like `foo()`
+3. As a constructor, like `new Student()`
 4. Indirectly using `apply()`, `call()` or `bind()`
 
 Sometimes it looks even **more confusing** when combined with `=>` arrow functions. Do you know what does the following code snippets log?
