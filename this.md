@@ -193,22 +193,24 @@ Since this part once confused me for a long time, allow me to explain it again:
 2. So inside `dragonsGoHome`, `this` equals to `daenerys` object.
 3. The `bind(this)` is inside the same context/this-scope as `dragonsGoHome()`. So `this` equals `daenerys`.
 
-### 4. Arrow Functions
+### 6. [dot]-Rule Exception: Arrow Functions
 Sorry the above [dot] rule doesn't work in here.
 
-In ECMAScript 6, arrow functions was introduced. One of arrow function's features is that it **automatically** bind `this` for you when arrow function was declared.
+In ECMAScript 6, arrow functions was introduced. One of arrow function's features is that it **automatically** bind `this` for you when arrow function was declared. This feature will definitly confuse a lot of beginners.
 
 ```js
 const jon = {
     firstName: 'Jon',
     lastName: 'Snow',
+
     fullName: () => `${this.firstName} ${this.lastName}`,
-    // same as:
+    // Same as:
     fullName: function() {
         return `${this.firstName} ${this.lastName}`
     }.bind(this);
+
     getThis: () => this,
-    // same as
+    // Same as
     getThis: function() {return this}.bind(this)
 }
 jon.fullName();                // "undefined undefined"
@@ -245,13 +247,13 @@ test();
 ```
 We can tell is that, the arrow function binds _the scope which wraps the outside object_ with _this_.
 
-**Takeaway**: The [dot] rule **doesn't work** with arrow function since the `this` was already binded/specified as soon as arrow function was declared.
+**Takeaway**: The [dot] rule **doesn't** work with arrow function since `this` was already **invisibly** binded/specified as soon as arrow function was declared.
 
 ### Conclusions
 1. The default `this` is window in browser.
 2. Whatever was before the [dot] will be passed into the method as `this`. This rule **doesn't work** with arrow functions, since their `this` was already binded when being declared.
 3. Callbacks are typically invoked as **purely function** form.
-4. How one function was **invoked** is more important than how/where it was **declared**.
+4. How one function was **invoked** is way more important than how/where it was **declared**.
 
 ### References:
 1. _Understanding Javascript's this With Clarity, and Master It_: [http:\/\/javascriptissexy.com\/understand-javascripts-this-with-clarity-and-master-it\/](http://javascriptissexy.com/understand-javascripts-this-with-clarity-and-master-it/)
