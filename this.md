@@ -2,7 +2,7 @@
 
 The this keyword is always **confusing**. Especially when functions are invoked in different ways:
 
-1. As a method, like `obj.foo()`, this is exactly the same as most languages, such as java.
+1. As a method, like `obj.foo()`
 2. As purely function, like `foo()`
 3. As a constructor, like `new Student()`
 4. Indirectly using `apply()`, `call()` or `bind()`
@@ -28,12 +28,13 @@ const jon = {
 jon.fullName();                // "Jon Snow"
 jon.weapon.use();              // "Pew, Longclaw used."
 ```
-Invoked as method works the same as java. And it's fundamental of all our future theories.
+Invoked as method works the same as Java.
 
 `fullName` method was invoked as a method of `jon`. Because there is a 'jon.' right before it. So `jon` will passed into `fullName()` as its `this`.
 
 **Takeaway**: _Anything_ before the **dot** will passed into the method as the method's `this` keyword.
 
+But nothing or dot was before the function? Read on.
 ### 2. As Function
 
 ```js
@@ -51,11 +52,11 @@ console.log(window.a)     // 100
 console.log(this.a)       // 100
 ```
 
-So, the `foo`\( or `window.foo`\) was invoked and the **default**`this`\( or`window`\) was logged.
+So, the `foo`\( or `window.foo`\) was invoked and thus the **default**`this`\( or`window`\) was logged.
 
 **Takeaway**: In browser, `window` is the default `this`.
 
-A little bit more tricky in here combining tip-1 and tip-2:
+A little bit more tricky interview question in here, by combining tip-1 and tip-2:
 
 ```js
 const jon = {
@@ -70,9 +71,9 @@ const fullNameOutside = jon.fullName;
 // invoke it as pure function
 fullNameOutsite();            // "undefined undefined", as this is window
 ```
-Since there's nothing or dot before the `fullNameOutside`, it is invoked as a pure function, `window` will be the `this`.
+Since there's nothing or dot before the `fullNameOutside`, it is invoked as a **pure function**, thus `window` will be the `this`.
 
-**Takeaway**: Where/how a functions was **declared** is much less important than how the function was **invoked**.
+**Takeaway**: Where/how a functions was **declared** is much less important than **how** the function was **invoked**.
 
 ### 3. As Constructor
 ```js
@@ -85,11 +86,12 @@ function Student(id) {
 const Tom = new Student(10092);
 ```
 
-**Takeaway**: Steps when a constructor is called \(in the above code for example\):
+**Takeaway**: What happends when a constructor is invoked \(in the above code for example\):
 
-1. Create a new empty object {} and use Tom to point to it.
-2. pass the newly created object `Tom` as _this_ into to the constructor \(`Student()`\).
-3. Go through the constructor.
+1. A new empty object {}.
+2. Tom was pointed to the new empty object.
+3. `Tom` was passed into to the constructor \(`Student()`\) as `this`.
+3. Execute the constructor.
 
 So, in here, the `this` will be the new object, `Tom`.
 
@@ -109,35 +111,35 @@ showFullName.apply(jon);       // 'Jon Snow'
 showFullName.call(jon);        // 'Jon Snow'
 showFullName.bind(jon)();      // 'Jon Snow'
 ```
-### 5. Special Functions (As callback)
-`setTimeout` is a popular one among interviewers:
+### 5. Special Functions (As Callback)
+`setTimeout()` is a popular one in interviews:
 ```js
 if (this.options.destroyOnHide) {
     setTimeout(function() { 
-        this.tip.destroy()
+        this.tip.destroy();
     }, 1000);
 }
-// Question: what will happen?
+// What will happen?
 ```
-Answer is code will not work as expected, `this` will become window inside the callback. Sometimes I hope them test me something else such as `forEach()`:
+Answer is code will not work as expected since `this` is `window` inside the callback.`forEach()` has the same issue:
 ```js
-var Daenerys = {
+const daenerys = {
     home: "King's landing",
     dragons: [
         {name: 'Drogon', location: 'The Wall'},
         {name: 'Rhaegal', location: 'Castel Black'},
         {name: 'Viserion', location: 'Winterfell'}
     ],
-    // trying to set all dragon's location to Daenerys' home
+    // trying to set dragon's location to daenerys.home
     dragonsGoHome() {
-        // put a callback into forEach()
+        // attention: callback in forEach()
         this.dragons.forEach(function(dragon) {
             dragon.location = this.home;        // this === window
         });
     }
 }
-Daenerys.dragonAttack();
-Daenerys.dragons[0].home;    // undefined
+daenerys.dragonAttack();
+daenerys.dragons[0].home;    // undefined
 ```
 The this will become `window` again in the callbacks. Why? because most of the cases, callback is invoked in pure function form. Like:
 ```js
@@ -170,21 +172,21 @@ And a fix for Daenerys of course:
 var daenerys = {
 ...
  dragonsGoHome() {
-    var that = this;
+    // `that`
     this.dragons.forEach(function(dragon) {
         // inside the callback
         dragon.location = this.home;
-    }.bind(this));           // this equals that
+    }.bind(this));           // `this` equals `that`
  }
 ...
+// daenerys DOT dragonsGoHome
 daenerys.dragonsGoHome();
 ```
-
 Since this part once confused me for a long time, allow me to explain it again:
 
-1. When we call `daenerys.dragonsGoHome()`, we pass `daenerys` as this into function `dragonsGoHome()` as `this`.
-2. Ok, so inside `dragonsGoHome`, this equals to `daenerys`.
-3. The bind is inside the same context/this-scope as `dragonsGoHome()`. So this equals `daenerys`.
+1. When we call `daenerys.dragonsGoHome()`, we pass `daenerys` into method `dragonsGoHome()` as `this`.
+2. Ok, so inside `dragonsGoHome`, `this` equals to `daenerys` object.
+3. The `bind(this)` is inside the same context/this-scope as `dragonsGoHome()`. So `this` equals `daenerys`.
 
 ### 4. Arrow Functions
 
@@ -236,4 +238,4 @@ We can tell is that, the arrow function binds _the scope which wraps the outside
 
 ### References:
 1. _Understanding Javascript's this With Clarity, and Master It_: [http:\/\/javascriptissexy.com\/understand-javascripts-this-with-clarity-and-master-it\/](http://javascriptissexy.com/understand-javascripts-this-with-clarity-and-master-it/)
-2. _setTimeout_ (@stackoverflow): http://stackoverflow.com/questions/2130241/pass-correct-this-context-to-settimeout-callback
+2. stackoverflow: http://stackoverflow.com/questions/2130241/pass-correct-this-context-to-settimeout-callback
