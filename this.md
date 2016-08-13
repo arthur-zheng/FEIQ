@@ -249,9 +249,9 @@ We can tell is that, the arrow function binds _the scope which wraps the outside
 
 ### Conclusions
 1. The default `this` is window in browser.
-2. Whatever was before the [dot] will be passed into the method as `this`.
+2. Whatever was before the [dot] will be passed into the method as `this`. This rule **doesn't work** with arrow functions, since their `this` was already binded when being declared.
 3. Callbacks are typically invoked as **purely function** form.
-4. How the function was **invoked** is the most important part than how/where it was **declared**.
+4. How one function was **invoked** is more important than how/where it was **declared**.
 
 ### References:
 1. _Understanding Javascript's this With Clarity, and Master It_: [http:\/\/javascriptissexy.com\/understand-javascripts-this-with-clarity-and-master-it\/](http://javascriptissexy.com/understand-javascripts-this-with-clarity-and-master-it/)
