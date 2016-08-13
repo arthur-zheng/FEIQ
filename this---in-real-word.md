@@ -1,7 +1,7 @@
 # In the Real World
-Make sure you have read **last chapter** _this - basics_ before you keep on.
+Make sure you have read **last chapter** _this - basics_ before you read following.
 
-One reason JS looks complicated is because JS is dealing with something else such as: DOM, Async calls etc. Things get complecated, in real world, real interviews.
+One reason JS looks complicated is because JS is dealing with something else such as: DOM, Async calls etc. Things get complecated, in real world's real interviews.
 
 ### 1. With DOM's Event Binding
 ```js
@@ -27,3 +27,7 @@ var cal = new Calculator();
 cal.calculate.sum1();             // ?
 cal.calculate.sum2();             // ?
 ```
+
+### Constructor
+
+This is a hard one:

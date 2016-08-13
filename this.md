@@ -97,7 +97,8 @@ Since this is so flexible, what if sometime we want to mannally control the this
 function showFullName() {
     return `${this.firstName} ${this.lastName}`;
 }
-showFullName();                // error, firstName and lastName are undefined
+showFullName();                // "undefined undefined"
+
 const jon = {
     firstName: 'Jon',
     lastName:  'Snow'
@@ -106,7 +107,7 @@ showFullName.apply(jon);       // 'Jon Snow'
 showFullName.call(jon);        // 'Jon Snow'
 showFullName.bind(jon)();      // 'Jon Snow'
 ```
-### 5. Special Functions (or as callback)
+### 5. Special Functions (As callback)
 ```js
 if (this.options.destroyOnHide) {
     setTimeout(function() { 
@@ -116,11 +117,20 @@ if (this.options.destroyOnHide) {
 // will not work as expected, `this` will become window inside the callback.
 ```
 
-The this will become undefined in callbacks. Why? because most of the cases, callback is invoked in pure function form.
-
-How to fix?
+The this will become undefined in callbacks. Why? because most of the cases, callback is invoked in pure function form. Like:
 ```js
-// Using that, or closure
+// a function supports callback
+function fooWithCallback(callback) {
+    // do some stuff such as DOM manipulating
+    ...
+    // callback is invoked after, as a pure function
+    callback();
+}
+fooWithCallback(iAmCallback() {...});
+```
+How to **fix** `this`?
+```js
+// Way 1: using 'that', or closure
 var that = this;
 if (this.options.destroyOnHide) {
     setTimeout(function() {
@@ -128,7 +138,7 @@ if (this.options.destroyOnHide) {
     }, 1000);
 }
 
-// or use bind (cleaner, better way)
+// Way 2: use bind() (cleaner, better way)
 if (this.options.destroyOnHide) {
     setTimeout(this.tip.destroy.bind(this.tip), 1000);
 }
@@ -136,7 +146,7 @@ if (this.options.destroyOnHide) {
 
 ### 4. Arrow Functions
 
-In ECMAScript 6, arraw functions was introduced. One of arrow function's features is that it **automatically** bind _this_ for you.
+In ECMAScript 6, arrow functions was introduced. One of arrow function's features is that it **automatically** bind `this` for you.
 ```js
 const jon = {
     firstName: 'Jon',
