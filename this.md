@@ -130,7 +130,7 @@ var Daenerys = {
     dragonsGoHome() {
         // put a callback into forEach()
         this.dragons.forEach(function(dragon) {
-            dragon.position = this.home;        // this === window
+            dragon.location = this.home;        // this === window
         });
     }
 }
@@ -163,6 +163,26 @@ if (this.options.destroyOnHide) {
     setTimeout(this.tip.destroy.bind(this.tip), 1000);
 }
 ```
+And a fix for Daenerys of course:
+```js
+var daenerys = {
+...
+ dragonsGoHome() {
+    var that = this;
+    this.dragons.forEach(function(dragon) {
+        // inside the callback
+        dragon.location = this.home;
+    }.bind(this));           // this equals that
+ }
+...
+daenerys.dragonsGoHome();
+```
+
+Since this part once confused me for a long time, allow me to explain it again:
+
+1. When we call `daenerys.dragonsGoHome()`, we pass `daenerys` as this into function `dragonsGoHome()` as `this`.
+2. Ok, so inside `dragonsGoHome`, this equals to `daenerys`.
+3. The bind is inside the same context/this-scope as `dragonsGoHome()`. So this equals `daenerys`.
 
 ### 4. Arrow Functions
 
