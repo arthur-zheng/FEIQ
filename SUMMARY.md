@@ -8,8 +8,10 @@
     * Hoisting
     * [Closue](closue.md)
 * [Object](prototype.md)
-* Prototype
+    * Object
+    * Prototype
 * Standard Built-in Objects
     * Set
     * [Map](map--set.md)
+
 
