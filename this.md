@@ -24,10 +24,9 @@ console.log(window.a)     // 100
 ```
 So, the `foo`( or `window.foo`) was invoked and the **default**`this`( or`window`) was logged.
 
-**Point**: Default `this` is `window` in browser.
+**Takeaway**: Default `this` is `window` in browser.
 
 ### 2. As Method
-
 ```js
 const jon = {
     firstName: 'Jon',
@@ -38,10 +37,9 @@ const jon = {
 }
 jon.fullName();            // ?
 ```
-
 fullName method was invoked as a method of `jon`. Because there is a 'jon.' right before it. So `jon` will passed into `fullName()` as its `this`.
 
-**Point**: _Anything_ before the **dot** will passed into the method as the method's `this` keyword.
+**Takeaway**: _Anything_ before the **dot** will passed into the method as the method's `this` keyword.
 
 ### 3. As Constructor
 
