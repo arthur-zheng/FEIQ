@@ -1,7 +1,13 @@
 # Summary
 
 * [Introduction](README.md)
+* [Basics](basics.md)
+* [Object](prototype.md)
+* Prototype
+* Hoisting
+* [Closue](closue.md)
 * [this this this](this.md)
-* [prototype](prototype.md)
-* [Map \/ Set](map--set.md)
+* [Map](map--set.md)
+* Set
+* Basics
 
