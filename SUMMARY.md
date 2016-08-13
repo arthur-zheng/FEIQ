@@ -10,7 +10,7 @@
 * [Object](object.md)
     * Object
     * Prototype
-* Standard Built-in Objects
+* [Standard Built-in Objects](standard-built-in-objects.md)
     * Array
     * Set
     * [Map](map--set.md)

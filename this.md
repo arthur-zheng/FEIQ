@@ -239,6 +239,12 @@ test();
 ```
 We can tell is that, the arrow function binds _the scope which wraps the outside object_ with _this_.
 
+### Conclusions
+1. The default `this` is window in browser.
+2. Whatever was before the [dot] will be passed into the method as `this`.
+3. Callbacks are typically invoked as **purely function** form.
+4. How the function was **invoked** is the most important part than how/where it was **declared**.
+
 ### References:
 1. _Understanding Javascript's this With Clarity, and Master It_: [http:\/\/javascriptissexy.com\/understand-javascripts-this-with-clarity-and-master-it\/](http://javascriptissexy.com/understand-javascripts-this-with-clarity-and-master-it/)
 2. stackoverflow: http://stackoverflow.com/questions/2130241/pass-correct-this-context-to-settimeout-callback
