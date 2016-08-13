@@ -2,14 +2,30 @@
 
 The this keyword is always **confusing**. Especially when functions are invoked in different ways:
 
-1. Purely as function, like `foo()`
-2. Object's method, like `obj.foo()`
+1. Object's method, like `obj.foo()`, this is exactly the same as most languages, such as java.
+2. Purely as function, like `foo()`
 3. Constructor, like `new Student()`
 4. Indirectly using `apply()`, `call()` or `bind()`
 
 Sometimes it looks even **more confusing** when combined with `=>` arrow functions. Do you know what does the following code snippets log?
 
-### 1. As Function
+### 1. As a Method, As in Java
+```js
+const jon = {    
+    firstName: 'Jon',    
+    lastName: 'Snow',
+    fullName() {        
+        console.log(`${this.firstName} ${this.lastName}`)                    
+    }
+}
+jon.fullName();            // ?
+```
+Invoked as method works the same as java. And it's fundamental of all our future theories.
+
+fullName method was invoked as a method of `jon`. Because there is a 'jon.' right before it. So `jon` will passed into `fullName()` as its `this`.
+
+**Takeaway**: _Anything_ before the **dot** will passed into the method as the method's `this` keyword.
+### 2. As Function
 
 ```js
 function foo() {
@@ -29,31 +45,31 @@ console.log(this.a)       // 100
 So, the `foo`\( or `window.foo`\) was invoked and the **default**`this`\( or`window`\) was logged.
 
 **Takeaway**: In browser, `window` is the default `this`.
-
-### 2. As Method
+A little bit more tricky:
 
 ```js
 const jon = {
     firstName: 'Jon',
     lastName: 'Snow',
-    fullName() {
+    fullName() { 
         console.log(`${this.firstName} ${this.lastName}`)
     }
 }
-jon.fullName();            // ?
+const fullNameOutside = jon.fullName;
+fullNameOutsite();        // undefined
 ```
 
-fullName method was invoked as a method of `jon`. Because there is a 'jon.' right before it. So `jon` will passed into `fullName()` as its `this`.
 
-**Takeaway**: _Anything_ before the **dot** will passed into the method as the method's `this` keyword.
 
 ### 3. As Constructor
 
 ```js
+// a constructor
 function Student(id) {
     this.id = id;
     console.log(this.id);    // ?
 }
+// new instance
 const Tom = new Student(10092);
 ```
 
@@ -66,10 +82,33 @@ Takeaway: Steps when a constructor is called \(in the above code for example\):
 So, in here, the this will be the new object, `Tom`.
 
 ### 4. As with `apply()`, `call()` and `bind()`
-
+Since this is so flexible, what if sometime we want to mannally control the this? `apply()` `call()` and `bind()` was created to do this.
+```js
+function showFullName() {
+    console.log(`${this.firstName} ${this.lastName}`);
+}
+showFullName();                // error, firstName and lastName are undefined
+const jon = {
+    firstName: 'Jon',
+    lastName:  'Snow'
+}
+showFullName.apply(jon);       // 'Jon Snow'
+showFullName.call(jon);        // 'Jon Snow'
+showFullName.bind(jon)();      // 'Jon Snow'
+```
 ### 5. Arrow functions
 
 In ECMAScript 6, arraw functions was introduced. One of arrow function's features is that it **automatically** bind _this_ for you.
+```js
+const jon = {
+    firstName: 'Jon',
+    lastName:  'Snow',
+    fullName: () => `${this.firstName} ${this.lastName}`,
+    getThis: () => this
+}
+jon.fullName();                // "undefined undefined"
+jon.getThis();                 // window
+```
 
 ```js
 // a constructor
