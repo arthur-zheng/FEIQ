@@ -70,7 +70,9 @@ const fullNameOutside = jon.fullName;
 // invoke it as pure function
 fullNameOutsite();            // "undefined undefined", as this is window
 ```
-Since there's nothing or dot before the `fullNameOutside`, it is invoked as a pure function, `window` will be the `this`. 
+Since there's nothing or dot before the `fullNameOutside`, it is invoked as a pure function, `window` will be the `this`.
+
+**Takeaway**: Where/how a functions was **declared** is much less important than how the function was **invoked**.
 
 ### 3. As Constructor
 ```js
@@ -83,7 +85,7 @@ function Student(id) {
 const Tom = new Student(10092);
 ```
 
-Takeaway: Steps when a constructor is called \(in the above code for example\):
+**Takeaway**: Steps when a constructor is called \(in the above code for example\):
 
 1. Create a new empty object {} and use Tom to point to it.
 2. pass the newly created object `Tom` as _this_ into to the constructor \(`Student()`\).
