@@ -11,7 +11,6 @@
     * Object
     * Prototype
 * Standard Built-in Objects
+    * Array
     * Set
     * [Map](map--set.md)
-
-
