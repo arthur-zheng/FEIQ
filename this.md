@@ -13,18 +13,19 @@ Sometimes it looks even **more confusing** when combined with `=>` arrow functio
 
 ```js
 function foo() {
-    console.log(this);
+    console.log(this);    // this means, whatever passed into foo as this
 }
 foo();                    // ?
 ```
 Keep in mind that everything in Browser happens within the `window` scope:
 ```js
-var a = 100;
+var a = 100;              // a dangerous global variable
 console.log(window.a)     // 100
+console.log(this.a)       // 100
 ```
 So, the `foo`( or `window.foo`) was invoked and the **default**`this`( or`window`) was logged.
 
-**Takeaway**: Default `this` is `window` in browser.
+**Takeaway**: In browser, `window` is the default `this`.
 
 ### 2. As Method
 ```js
@@ -42,11 +43,16 @@ fullName method was invoked as a method of `jon`. Because there is a 'jon.' righ
 **Takeaway**: _Anything_ before the **dot** will passed into the method as the method's `this` keyword.
 
 ### 3. As Constructor
+```js
+function Student(id) {
+    this.id = id;
+}
+```
 
-### 4. As with apply\(\) call\(\) and bind\(\)
+### 4. As with `apply()`, `call()` and `bind()`
 
 ### 5. Arrow functions
-
+In ECMAScript 6, arraw functions was introduced. One of arrow function's features is that it **automatically** bind _this_ for you.
 ```js
 // a constructor
 function Calculator() {
