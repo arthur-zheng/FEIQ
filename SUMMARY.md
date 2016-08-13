@@ -7,7 +7,7 @@
     * [this - In Real World](this---in-real-word.md)
     * Hoisting
     * [Closue](closue.md)
-* [Object](prototype.md)
+* Object
     * Object
     * Prototype
 * Standard Built-in Objects
