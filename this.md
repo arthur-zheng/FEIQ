@@ -155,9 +155,10 @@ function deleteDomNodesWithCallback(parentNode, callback) {
 }
 deleteDomNodesWithCallback(iAmTheNode, iAmCallback);
 ```
-How to **fix** `this`?
+So how to **fix** `this`?
 ```js
-// Way 1: using 'that', or closure
+// Way 1:
+// using 'that', or closure
 var that = this;
 if (this.options.destroyOnHide) {
     setTimeout(function() {
@@ -165,7 +166,8 @@ if (this.options.destroyOnHide) {
     }, 1000);
 }
 
-// Way 2: use bind() (cleaner, better way)
+// Way 2:
+// use bind(), a cleaner & better way
 if (this.options.destroyOnHide) {
     setTimeout(this.tip.destroy.bind(this.tip), 1000);
 }
@@ -192,33 +194,41 @@ Since this part once confused me for a long time, allow me to explain it again:
 3. The `bind(this)` is inside the same context/this-scope as `dragonsGoHome()`. So `this` equals `daenerys`.
 
 ### 4. Arrow Functions
+Sorry the above [dot] rule doesn't work in here.
 
-In ECMAScript 6, arrow functions was introduced. One of arrow function's features is that it **automatically** bind `this` for you.
+In ECMAScript 6, arrow functions was introduced. One of arrow function's features is that it **automatically** bind `this` for you when arrow function was declared.
+
 ```js
 const jon = {
     firstName: 'Jon',
     lastName: 'Snow',
     fullName: () => `${this.firstName} ${this.lastName}`,
-    getThis: () => this
+    // same as:
+    fullName: function() {
+        return `${this.firstName} ${this.lastName}`
+    }.bind(this);
+    getThis: () => this,
+    // same as
+    getThis: function() {return this}.bind(this)
 }
 jon.fullName();                // "undefined undefined"
 jon.getThis();                 // window
+```
+What Babel (https://babeljs.io/repl) compiles proves our conclusion:
 
-// inside test() scope
+Before:
+```js
 function test() {
     const jon = {
         firstName: 'Jon',
         lastName: 'Snow',
         fullName: () => `${this.firstName} ${this.lastName}`,
-        getThis: () => this
     }
     jon.fullName();             // "undefined undefined"
-    jon.getThis();              // window
 }
 test();
 ```
-This is what Babel (https://babeljs.io/repl) compiles from above:
-
+After:
 ```js
 function test() {
     var _this = this;
@@ -227,17 +237,15 @@ function test() {
         lastName: 'Snow',
         fullName: function fullName() {
             return _this.firstName + ' ' + _this.lastName;
-        },
-        getThis: function getThis() {
-            return _this;
         }
     };
     jon.fullName();             // "undefined undefined"
-    jon.getThis();              // window
 }
 test();
 ```
 We can tell is that, the arrow function binds _the scope which wraps the outside object_ with _this_.
+
+**Takeaway**: The [dot] rule **doesn't work** with arrow function since the `this` was already binded/specified as soon as arrow function was declared.
 
 ### Conclusions
 1. The default `this` is window in browser.
