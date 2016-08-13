@@ -17,14 +17,22 @@ const jon = {
     fullName() {        
         console.log(`${this.firstName} ${this.lastName}`)                    
     }
+    weapon: {
+        name: 'Longclaw',
+        use() {
+            console.log('Pew, ${this.name} used.');
+         }
+     }
 }
-jon.fullName();            // ?
+jon.fullName();                // "Jon Snow"
+jon.weapon.use();              // "Pew, Longclaw used."
 ```
 Invoked as method works the same as java. And it's fundamental of all our future theories.
 
-fullName method was invoked as a method of `jon`. Because there is a 'jon.' right before it. So `jon` will passed into `fullName()` as its `this`.
+`fullName` method was invoked as a method of `jon`. Because there is a 'jon.' right before it. So `jon` will passed into `fullName()` as its `this`.
 
 **Takeaway**: _Anything_ before the **dot** will passed into the method as the method's `this` keyword.
+
 ### 2. As Function
 
 ```js
@@ -60,7 +68,7 @@ const fullNameOutside = jon.fullName;
 // invoke it as pure function
 fullNameOutsite();            // "undefined undefined", as this is window
 ```
-**Takeaway**: When invoked as function, **Only** pay attention to the stuff before the **dot**, if there's no dot, `window` will be used as **this**.
+Since there's nothing or dot before the `fullNameOutside`, it is invoked as a pure function, `window` will be the `this`. 
 
 ### 3. As Constructor
 ```js
@@ -122,7 +130,28 @@ function test() {
 }
 test();
 ```
+This is what Babel (https://babeljs.io/repl) compiles from above:
+
+```js
+function test() {
+    var _this = this;
+    var jon = {
+        firstName: 'Jon',
+        lastName: 'Snow',
+        fullName: function fullName() {
+            return _this.firstName + ' ' + _this.lastName;
+        },
+        getThis: function getThis() {
+            return _this;
+        }
+    };
+    jon.fullName();             // "undefined undefined"
+    jon.getThis();              // window
+}
+test();
+```
+We can tell the arrow function binds _the scope which wraps the outside object_ with _this_.
+
 ### References:
-
 1. _Understanding Javascript's this With Clarity, and Master It_: [http:\/\/javascriptissexy.com\/understand-javascripts-this-with-clarity-and-master-it\/](http://javascriptissexy.com/understand-javascripts-this-with-clarity-and-master-it/)
-
+2. 
