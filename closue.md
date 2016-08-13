@@ -47,3 +47,4 @@ Way 2: Use let
 // use let
 
 ```
+### Advanced Questions
