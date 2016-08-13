@@ -14,4 +14,5 @@
     * Array
     * Set
     * [Map](map--set.md)
+* [Tricks to Show-off](tricks-to-show-off.md)
 
