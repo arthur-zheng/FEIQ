@@ -54,6 +54,7 @@ console.log(this.a)       // 100
 So, the `foo`\( or `window.foo`\) was invoked and the **default**`this`\( or`window`\) was logged.
 
 **Takeaway**: In browser, `window` is the default `this`.
+
 A little bit more tricky in here combining tip-1 and tip-2:
 
 ```js
@@ -105,7 +106,7 @@ showFullName.apply(jon);       // 'Jon Snow'
 showFullName.call(jon);        // 'Jon Snow'
 showFullName.bind(jon)();      // 'Jon Snow'
 ```
-### 5. Special Functions (or callback)
+### 5. Special Functions (or as callback)
 ```js
 if (this.options.destroyOnHide) {
     setTimeout(function() { 
@@ -119,7 +120,7 @@ The this will become undefined in callbacks. Why? because most of the cases, cal
 
 How to fix?
 ```js
-// Using that
+// Using that, or closure
 var that = this;
 if (this.options.destroyOnHide) {
     setTimeout(function() {

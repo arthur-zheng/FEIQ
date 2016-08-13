@@ -47,4 +47,18 @@ Way 2: Use let
 // use let
 
 ```
+
+### When do you need it?
+```
+var that = this;
+if (this.options.destroyOnHide) {
+    setTimeout(function() {
+        that.tip.destroy()
+    }, 1000);
+}
+```
+Create private variables:
+```js
+//
+```
 ### Advanced Questions
