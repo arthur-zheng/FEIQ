@@ -131,10 +131,48 @@ Not a recommended practise since we always want to seperate Representing (HTML) 
 // 'button'
 ```
 
-### ???
+### 4. Closure
+Looks something new at first glance but exactly what we have seen before:
+```js
+var rhaegal = {
+    name: 'Rhaegal',
+    layEgg() {
+        // hidden private variable in closure
+        let eggs = 0;
+        const lay = function() {
+            eggs++;
+            console.log(`${this.name}'s eggs are: ${eggs}.`)
+        }
+        return lay();
+    }
+}
+rhaegal.layEgg();
+```
+Answer is: `'s eggs are 1.`
 
+**Remember**: How a function is invoked is the most important thing. The function `lay()` is invoked as `purely function` thus the `this` inside will be `window`. Simply like that.
+
+How to fix? Similarly to the above example `tom`. We can either use `that` or `bind`. Or arrow function `=>`:
+
+```js
+var rhaegal = {
+    name: 'Rhaegal',
+    layEgg() {
+        // hidden private variable in closure
+        let eggs = 0;
+        const lay = () => {
+            eggs++;
+            console.log(`${this.name}'s eggs are: ${eggs}.`)
+        }
+        return lay();
+    }
+}
+rhaegal.layEgg();                    // Rhaegal's eggs are: 1.
+
+```
 
 ### References:
 
 1. _Understanding Javascript's this With Clarity, and Master It_: [http:\/\/javascriptissexy.com\/understand-javascripts-this-with-clarity-and-master-it\/](http://javascriptissexy.com/understand-javascripts-this-with-clarity-and-master-it/)
 2. _this_ (MDN) https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this
+3. _The Final Steps to Mastering JavaScript’s “this” Keyword_ https://www.sitepoint.com/mastering-javascripts-this-keyword/
