@@ -120,31 +120,19 @@ document.querySelector('html').addEventListener('click', function() {
 ```
 Keep in mind those functions' behavior.
 
-### 3. HTML Inline
-Not a recommended practise since we always want to seperate Representing (HTML) and Logic (Javascript)
+### 3. HTML Inline (Auto Binding)
+Not a recommended practise since we always want to seperate Representing (HTML) and Logic (Javascript).
 
 ```js
-// a constructor
-function Calculator() {
-    // object inside the constructor
-    this.calculate = {
-        array: [1, 2, 3],
-        sum1: () => {
-            console.log(this);
-        },
-        sum2() {
-            console.log(this);
-        }
-    };
-};
-var cal = new Calculator();
-cal.calculate.sum1();             // ?
-cal.calculate.sum2();             // ?
+<button onclick="alert(this.tagName.toLowerCase());">
+    Show this
+</button>
+
+// 'button'
 ```
 
-### Constructor
+### ???
 
-This is a hard one:
 
 ### References:
 
