@@ -16,7 +16,8 @@
     * [Set, WeakSet](set.md)
     * [Map, WeakMap](map--set.md)
     * [Write your own](write-your-own.md)
-    * Promise
+    * [Promise](promise.md)
 * [Tricks](tricks-to-show-off.md)
 * [CSS](css.md)
 * [HTML](css.md)
+
