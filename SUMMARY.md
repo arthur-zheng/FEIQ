@@ -12,9 +12,9 @@
     * [Object](object.md)
     * [Prototype](prototype.md)
 * [Standard Built-in Objects](standard-built-in-objects.md)
-    * [Array](array.md)
-    * [Set](set.md)
-    * [Map](map--set.md)
+    * [Array \(Queue, Stack, Tree\)](array.md)
+    * [Set, WeakSet](set.md)
+    * [Map, WeakMap](map--set.md)
     * [Write your own](write-your-own.md)
 * [Tricks to Show-off](tricks-to-show-off.md)
 
