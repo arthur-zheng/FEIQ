@@ -13,11 +13,12 @@ $('button').click(function(event) {
 
 // Pure DOM API
 document.querySelector('html').addEventListener('click', function() {
-    alert(this);
+    console.log(this);
 });
 // the html DOM object will be logged
+
 ```
-This is because jQuery/DOM API binds `this` for you in the background. Unlike `setTimeout()` which doesn't do the same.
+This is because some functions such as jQuery/DOM API binds `this` for you in the background. Unlike `setTimeout()` which doesn't do the same.
 
 ### 1. With DOM's Event Binding
 
