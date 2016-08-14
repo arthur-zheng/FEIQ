@@ -4,6 +4,11 @@ This gitbook is a **collection** of the interview questions I have either came a
 
 I wrote this because there's **not** a lot of stuffs about front-end interview questions around on the internet. Hope it can help you somehow.
 
+Why this book?
+
+ 1. Best quality examples.
+ 2. Fully covers.
+
 Feel free to join this open-source repo:
 https://github.com/arthur-zheng/FEIQ
 or email me: arthur.z.me 'at' gmail.com.

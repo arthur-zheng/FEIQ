@@ -5,10 +5,7 @@ The this keyword is always **confusing**. Especially when functions are invoked 
 1. As a method, like `obj.foo()`
 2. As purely function, like `foo()`
 3. As a constructor, like `new Student()`
-4. Indirectly using `apply()`, `call()` or `bind()`
-5. As callback in `setTimeout()`,`forEach()` etc.
-
-Sometimes it looks even **more confusing** when combined with `=>` arrow functions. Do you know what does the following code snippets log?
+4. Indirectly using `apply()`,`call()`,`bind()`and `()=>{}`
 
 ### 1. As a Method, as in Java
 ```js
@@ -114,89 +111,8 @@ showFullName.apply(jon);       // 'Jon Snow'
 showFullName.call(jon);        // 'Jon Snow'
 showFullName.bind(jon)();      // 'Jon Snow'
 ```
-### 5. Special Functions (As Callback)
-`setTimeout()` is a popular one in interviews:
-```js
-if (this.options.destroyOnHide) {
-    setTimeout(function() { 
-        this.tip.destroy();
-    }, 1000);
-}
-// What will happen?
-```
-Answer is code will not work as expected since `this` is `window` inside the callback.`forEach()` has the same issue:
-```js
-const daenerys = {
-    home: "King's landing",
-    dragons: [
-        {name: 'Drogon', location: 'The Wall'},
-        {name: 'Rhaegal', location: 'Castel Black'},
-        {name: 'Viserion', location: 'Winterfell'}
-    ],
-    // trying to set dragon's location to daenerys.home
-    dragonsGoHome() {
-        // attention: callback in forEach()
-        this.dragons.forEach(function(dragon) {
-            dragon.location = this.home;        // this === window
-        });
-    }
-}
-daenerys.dragonAttack();
-daenerys.dragons[0].home;    // undefined
-```
-The this will become `window` again in the callbacks. Why? because most of the cases, callback is invoked in purely function form. Like:
-```js
-// a function supports callback
-function deleteDomNodesWithCallback(parentNode, callback) {
-    // do the deleting stuff
-    ...
-    // callback is invoked as a purely function
-    callback();
-}
-deleteDomNodesWithCallback(iAmTheNode, iAmCallback);
-```
-**Attention**: The above form doesn't cover all the cases, for example `addEventListener()` binds `this` for you and the `this` in the callback **will** be something else. See next chapter for example.
 
-So how to **fix** `this` by specifying the right one?
-
-```js
-// Way 1:
-// using 'that', or closure
-var that = this;
-if (this.options.destroyOnHide) {
-    setTimeout(function() {
-        that.tip.destroy()
-    }, 1000);
-}
-
-// Way 2:
-// use bind(), a cleaner & better way
-if (this.options.destroyOnHide) {
-    setTimeout(this.tip.destroy.bind(this.tip), 1000);
-}
-```
-And at last a fix for Daenerys:
-```js
-var daenerys = {
-...
- dragonsGoHome() {
-    var _that = this;         // created for demo purpose
-    this.dragons.forEach(function(dragon) {
-        // inside the callback
-        dragon.location = this.home;
-    }.bind(this));           // `this` equals to _that
- }
-...
-// daenerys [dot] dragonsGoHome
-daenerys.dragonsGoHome();
-```
-Since this part once confused me for a long time, allow me to explain it again:
-
-1. When we call `daenerys.dragonsGoHome()`, we pass `daenerys` into method `dragonsGoHome()` as `this`.
-2. So inside `dragonsGoHome`, `this` equals to `daenerys` object.
-3. The `bind(this)` is inside the same context/this-scope as `dragonsGoHome()`. So `this` equals `daenerys`.
-
-### 6. [dot]-Rule Exception: Arrow Functions
+### 5. [dot]-Rule Exception: Arrow Functions
 Sorry the above [dot] rule doesn't work in here.
 
 In ECMAScript 6, arrow functions was introduced. One of arrow function's features is that it **automatically** bind `this` for you when arrow function was declared. This feature will definitly confuse a lot of beginners.
