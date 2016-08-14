@@ -38,7 +38,7 @@ const daenerys = {
 daenerys.dragonAttack();
 daenerys.dragons[0].home;    // undefined
 ```
-The this will become `window` again in the callbacks. Why? because in the above `setTimeout()` or `forEach()`, callback is invoked in purely function form. Like:
+The this will become `window` again in the callbacks. Why? because in the above `setTimeout()` or `forEach()`, callback is invoked in purely function form. Kind of like:
 
 ```js
 // a function supports callback
@@ -83,7 +83,7 @@ And at last a fix for Daenerys:
 var daenerys = {
 ...
  dragonsGoHome() {
-    var _that = this;         // created for demo purpose
+    var _that = this;         // created only for demo purpose
     this.dragons.forEach(function(dragon) {
         // inside the callback
         dragon.location = this.home;
@@ -118,9 +118,10 @@ document.querySelector('html').addEventListener('click', function() {
 // the html DOM object will be logged
 
 ```
-Keep in mind these functions' behavior.
+Keep in mind those functions' behavior.
 
-### 3. ???
+### 3. HTML Inline
+Not a recommended practise since we always want to seperate Representing (HTML) and Logic (Javascript)
 
 ```js
 // a constructor
@@ -144,3 +145,8 @@ cal.calculate.sum2();             // ?
 ### Constructor
 
 This is a hard one:
+
+### References:
+
+1. _Understanding Javascript's this With Clarity, and Master It_: [http:\/\/javascriptissexy.com\/understand-javascripts-this-with-clarity-and-master-it\/](http://javascriptissexy.com/understand-javascripts-this-with-clarity-and-master-it/)
+2. _this_ (MDN) https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this

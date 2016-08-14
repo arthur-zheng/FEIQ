@@ -36,7 +36,7 @@ Invoked as method works the same as Java.
 
 But there's nothing or even [dot] before the function? Read on.
 
-### 2. As Purely Function
+### 2. As Purely Function (Global)
 
 ```js
 function foo() {
@@ -51,6 +51,8 @@ Keep in mind that everything in Browser happens within the `window` scope:
 var a = 100;              // a dangerous global variable
 console.log(window.a)     // 100
 console.log(this.a)       // 100
+console.log(this === window); // true
+console.log(this.document === document); // true
 ```
 
 So, the `foo`\( or `window.foo`\) was invoked and thus the **default**`this`\( or`window`\) was logged.
@@ -177,3 +179,4 @@ We can tell is that, the arrow function binds _the scope which wraps the outside
 ### References:
 1. _Understanding Javascript's this With Clarity, and Master It_: [http:\/\/javascriptissexy.com\/understand-javascripts-this-with-clarity-and-master-it\/](http://javascriptissexy.com/understand-javascripts-this-with-clarity-and-master-it/)
 2. stackoverflow: http://stackoverflow.com/questions/2130241/pass-correct-this-context-to-settimeout-callback
+3. _this_ (MDN) https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this
