@@ -14,5 +14,6 @@
     * [Array](array.md)
     * [Set](set.md)
     * [Map](map--set.md)
+    * [Write your own](write-your-own.md)
 * [Tricks to Show-off](tricks-to-show-off.md)
 

@@ -1,5 +1,4 @@
 ### Declaration 1
-What will be logged?
 ```js
 function test() {
     var a = b = 100;
@@ -41,7 +40,7 @@ NaN 和任何变量都不相等，包括 NaN 自己：
 console.log(NaN === NaN);// false
 判断一个变量是不是 NaN 可以用 isNaN() 函数，但是这 并不是一个完美的函数，有些时候用 value !== value 似乎更准确，幸运的是，ES6 已经有 Number.isNaN() 方法，将比 isNaN() 准确的多。
 
-### +-*/
+### + - * /
 ```
 let a = 10/3;
 a === 3;
