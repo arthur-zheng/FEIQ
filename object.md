@@ -1,4 +1,3 @@
-
 ###Keys are strings
 
 What is the output out of the following code? Explain your answer.
@@ -23,3 +22,15 @@ a["[object Object]"]=456;
 console.log(a["[object Object]"]);
 这样就一目了然了。
 ```
+### delete
+JavaScript also has a delete operator that "undefines" an object a property (thanks zproxy), it can be handy in certain situations, you can apply it to object properties and array members, variables declared with var cannot be deleted, but implicitly declared variables can be:
+```js
+var obj = {
+    val: 'Some string'
+};
+alert(obj.val); // displays 'Some string'
+delete obj.val;
+alert(obj.val); // displays 'undefined'
+```
+### References:
+1. _9 JavaScript Tips You May Not Know_ http://codetunnel.io/9-javascript-tips-you-may-not-know/
