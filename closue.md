@@ -1,5 +1,7 @@
 # Closure
-What is closure?
+
+### What is closure?
+
 ```js
 // Closure example
 function outer() {
@@ -9,6 +11,7 @@ function outer() {
     }
 }
 ```
+
 Closure is created when the following happens:
 
 1. A function `inner()` is created.
