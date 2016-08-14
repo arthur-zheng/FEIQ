@@ -60,12 +60,16 @@ test() {
 For functions declared as `function foo() {...};` will be fully lifted to the top of the scope.
 ```js
 test() {
+    var foo = 2;
     ...
     function foo() {...};
 }
 // Becomes:
 test() {
+    var foo;
     function foo() {...};
+    // all declarations are on top
+    foo = 2;
     ...
 }
 ```
