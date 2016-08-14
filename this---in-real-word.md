@@ -1,5 +1,5 @@
 # In the Real World
-Make sure you have read **last chapter** _this - basics_ before you read following.
+Make sure you have read last chapter _this - basics_ before you read following.
 
 One reason Javascript looks complicated is: Javascript are usually used to deal with DOM, Async calls and libs written by random people... Things get complicated, in real world, in real interviews.
 

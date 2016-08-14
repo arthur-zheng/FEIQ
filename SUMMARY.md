@@ -1,7 +1,7 @@
 # Summary
 
 * [Introduction](README.md)
-* [Basics](basics.md)
+* [Fundamental](basics.md)
 * [Concepts](concepts.md)
     * [this - Basics](this.md)
     * [this - In Real World](this---in-real-word.md)
@@ -16,5 +16,5 @@
     * [Set, WeakSet](set.md)
     * [Map, WeakMap](map--set.md)
     * [Write your own](write-your-own.md)
-* [Tricks to Show-off](tricks-to-show-off.md)
+* [Tricks](tricks-to-show-off.md)
 

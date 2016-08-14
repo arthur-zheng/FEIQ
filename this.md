@@ -27,6 +27,7 @@ jon.fullName();                // "Jon Snow"
 // jon.weapon [dot] use()
 jon.weapon.use();              // "Pew, Longclaw used."
 ```
+
 Invoked as method works the same as Java.
 
 `fullName` method was invoked as a method of `jon`. Because there is a `jon.` right before it. So `jon` will passed into `fullName()` as its `this`. Samely, `jon.weapon` was passed into `use()` as `this`.
