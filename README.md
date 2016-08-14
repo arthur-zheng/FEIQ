@@ -27,7 +27,7 @@ Thanks again for reading.
  3. ...
 
 ### References:
- 1. ...
+ 1. 你应该知道的25道 Javascript 面试题
  2. 
  3. 
 

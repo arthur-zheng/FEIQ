@@ -61,4 +61,25 @@ Create private variables:
 ```js
 //
 ```
-### Advanced Questions
+### Questions
+####1. What are the good and bad part of closure?
+
+####2. What will be logged?
+```js
+// Question 1
+(function(x) {
+    return (function(y) {
+        console.log(x);        // what will be logged?
+    })(2);
+})(1);
+
+// Question 2
+(function(y){
+    return (function(y){
+        console.log(y);        // what will be logged?
+    })(2);
+})(1);
+```
+
+###References:
+1. 你应该知道的25道 Javascript 面试题

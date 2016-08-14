@@ -8,11 +8,11 @@
     * [Hoisting](hoisting.md)
     * [Closue](closue.md)
 * [Object](object.md)
-    * Object
-    * Prototype
+    * [Object](object.md)
+    * [Prototype](prototype.md)
 * [Standard Built-in Objects](standard-built-in-objects.md)
-    * Array
-    * Set
+    * [Array](array.md)
+    * [Set](set.md)
     * [Map](map--set.md)
 * [Tricks to Show-off](tricks-to-show-off.md)
 
