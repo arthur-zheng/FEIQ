@@ -155,9 +155,10 @@ function deleteDomNodesWithCallback(parentNode, callback) {
 }
 deleteDomNodesWithCallback(iAmTheNode, iAmCallback);
 ```
-I also have to point out the above form doesn't cover all the cases, for example `addEventListener()` binds `this` for you and the `this` in the callback wont be something else. See next chapter for example.
+**Attention**: The above form doesn't cover all the cases, for example `addEventListener()` binds `this` for you and the `this` in the callback **will** be something else. See next chapter for example.
 
 So how to **fix** `this` by specifying the right one?
+
 ```js
 // Way 1:
 // using 'that', or closure
