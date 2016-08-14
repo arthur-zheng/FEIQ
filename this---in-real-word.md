@@ -5,10 +5,22 @@ One reason JS looks complicated is because JS is dealing with something else suc
 
 ### 1. With DOM's Event Binding
 ```js
+// jQuery.js
 $('button').click(function(event) {
     console.log(this);
 });
+// the button object will be logged
+
+// Pure DOM API
+document.querySelector('html').addEventListener('click', function() {
+    alert(this);
+});
+// the html DOM object will be logged
 ```
+This is because jQuery/DOM API binds `this` for you in the background. Unlike `setTimeout()` which doesn't do the same.
+
+### 1. With DOM's Event Binding
+
 ```js
 // a constructor
 function Calculator() {

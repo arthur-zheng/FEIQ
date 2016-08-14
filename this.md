@@ -155,7 +155,9 @@ function deleteDomNodesWithCallback(parentNode, callback) {
 }
 deleteDomNodesWithCallback(iAmTheNode, iAmCallback);
 ```
-So how to **fix** `this`?
+I also have to point out the above form doesn't cover all the cases, for example `addEventListener()` binds `this` for you and the `this` in the callback wont be something else. See next chapter for example.
+
+So how to **fix** `this` by specifying the right one?
 ```js
 // Way 1:
 // using 'that', or closure
@@ -252,7 +254,7 @@ We can tell is that, the arrow function binds _the scope which wraps the outside
 ### Conclusions
 1. The default `this` is window in browser.
 2. Whatever was before the [dot] will be passed into the method as `this`. This rule **doesn't work** with arrow functions, since their `this` was already binded when being declared.
-3. Callbacks are typically invoked as **purely function** form.
+3. Some function's callbacks are invoked as **purely function** form. Some aren't.
 4. How one function was **invoked** is way more important than how/where it was **declared**.
 
 ### References:
