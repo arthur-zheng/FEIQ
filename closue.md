@@ -3,7 +3,6 @@
 ### What is closure?
 
 ```js
-// Closure example
 function outer() {
     const val = 1;       // val is inside inner()'s closure
     return function inner() {
@@ -23,7 +22,6 @@ The above process called closure.
 ###1. Most Classical Question
 A common interview question starts like this:
 ```js
-// what will be logged?
 const array = [];
 for (var i=0; i < 10; i++) {
     array[i] = function() {
