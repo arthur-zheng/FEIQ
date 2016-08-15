@@ -1,12 +1,18 @@
+#Array (Queuee, Stack, Tree)
+
 ### Add space to String
+
 Write a function to add a space to string.
+
 ```js
 Array.prototype.addSpace = function() {
-    // your code here
+    /* your code here */
 }
 "abc".addSpace;    // "a b c"
 ```
+
 One of the solution is using `Array.prototype.split()` and  `Array.prototype.join()`:
+
 ```js
 Array.prototype.addSpace = function() {
     return this.split('').join(' ');

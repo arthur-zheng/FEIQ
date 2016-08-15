@@ -1,4 +1,5 @@
-#Write Your Own
+#All Others
+
 In a lot of interviews, you will be asked to implement some features.
 
 ### 1. Implement `bind()`
@@ -26,27 +27,4 @@ function(context) {
         _func.apply(context, arguments);
     };
 }
-```
-
-### 2. Implement `repeatify()`
-Implement `repeatify()`:
-```js
-String.prototype.repeatify = String.prototype.repeatify ||
-function(times) {
-    // write your own here
-}
-// how it works
-'Aoo'.repeatify(3);    // 'AooAooAoo'
-```
-One of the answers could be:
-```js
-String.prototype.repeatify = String.prototype.repeatify || function(times) {
-    // avoid concat for better performance:
-    // like: str = ''; str += this;
-    const str = [];
-    for (var i = 0; i < times; i++) {
-        str.push(this);
-    }
-    return str.join('');
-};
 ```
