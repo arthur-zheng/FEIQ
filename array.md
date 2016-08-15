@@ -1,4 +1,4 @@
-#Array (Queuee, Stack, Tree)
+#Array (Queue, Stack, Tree)
 
 ### Add space to String
 
