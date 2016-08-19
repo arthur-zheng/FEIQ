@@ -44,7 +44,7 @@ setInterval(function(){
     /*... */
 }, 10);
 ```
-
+---
 
 ###References:
 1. _5 More JavaScript Interview Exercises_

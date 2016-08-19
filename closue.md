@@ -104,7 +104,7 @@ Create private variables:
 ```js
 //
 ```
-
+---
 
 ###References:
 1. 你应该知道的25道 Javascript 面试题

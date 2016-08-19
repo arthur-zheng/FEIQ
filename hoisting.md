@@ -122,6 +122,8 @@ Will get error: `Uncaught TypeError: Identifier 'num' has already been declared`
 1. `const` will not be hoisted, thus we will get into `if`.
 2. Then we are trying to declare `num` again with `const`, which is not allowed.
 
+---
+
 ###References:
 1. _JS: Explain “hoisting”_: http://lucybain.com/blog/2014/hoisting/
 2. 

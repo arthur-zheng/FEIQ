@@ -32,5 +32,7 @@ alert(obj.val); // displays 'Some string'
 delete obj.val;
 alert(obj.val); // displays 'undefined'
 ```
+---
+
 ### References:
 1. _9 JavaScript Tips You May Not Know_ http://codetunnel.io/9-javascript-tips-you-may-not-know/
