@@ -20,5 +20,5 @@
     * [All Others](write-your-own.md)
 * [Tricks](tricks-to-show-off.md)
 * [CSS](css.md)
-* [HTML](css.md)
+* [HTML](html.md)
 
