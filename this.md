@@ -1,7 +1,5 @@
 # The **_this_** keyword
 
-------
-
 The this keyword is always **confusing**. Especially when functions are invoked in different ways:
 
 1. As a method, like `obj.foo()`
