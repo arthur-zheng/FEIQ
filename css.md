@@ -61,6 +61,8 @@ Answer:
 ```js
 The text 'a&amp;nbsp;' means 'space'    // use &amp; to escape ;
 ```
-
+---
 ### Reference:
-1. _How to write out HTML entity name (&amp;nbsp;, &amp;lt;, &amp;gt;, etc)_ http://stackoverflow.com/questions/17427713/how-to-write-out-html-entity-name-nbsp-lt-gt-etc
+1. _How to write out HTML entity name (&amp;nbsp;, &amp;lt;, &amp;gt;, etc)?_ http://stackoverflow.com/questions/17427713/how-to-write-out-html-entity-name-nbsp-lt-gt-etc
+2. _Does opacity:0 have exactly the same effect as visibility:hidden?_ http://stackoverflow.com/questions/272360/does-opacity0-have-exactly-the-same-effect-as-visibilityhidden?answertab=votes#tab-top
+3. 

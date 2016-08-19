@@ -23,7 +23,7 @@ Why?
 
 ###3. Use !! to Get Boolean
 
-
+---
 ### References:
 1. 装逼指南
 2. useless es5:
