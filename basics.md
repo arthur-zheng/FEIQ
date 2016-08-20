@@ -16,7 +16,7 @@ function test() {
 }
 ...
 ```
-'use strict':
+##### How about using 'use strict'?
 ```js
 (function() {
     'use strict';
@@ -27,37 +27,72 @@ console.log(b);
 
 
 ### NaN
-What is NaN? What is its type? How can you reliably test if a value is equal to NaN?
-NaN 是什么鬼？typeof 的结果是？如果一个变量的值是 NaN，怎么确定？
-NaN 是 ‘not a number’ 的缩写，表示 “不是一个数字”，通常会在运算过程中产生：
+##### 1. When is NaN be produced?
 ```js
-console.log('abc' / 4);
-console.log(4 * 'a');
+// Only '+' sign will try to do some concat.
+// Other operations ( / * - ) will produce NaN when number and string are mixed.
+console.log('abc'/4);
+console.log(4*'a');
+
+// How to check NaN:
+Number.isNaN(NaN);    // true, only if is NaN
+
+// Be careful of pitfalls from isNaN():
+isNaN({});         // true
+isNaN('a');        // true
+typeof(NaN);       // "number"
+NaN === NaN        // false
 ```
-虽然它 “不是一个数字”，但是 NaN 的 typeof 结果却是 number：
-console.log(typeof(4 * 'a'));// number
-NaN 和任何变量都不相等，包括 NaN 自己：
-console.log(NaN === NaN);// false
-判断一个变量是不是 NaN 可以用 isNaN() 函数，但是这 并不是一个完美的函数，有些时候用 value !== value 似乎更准确，幸运的是，ES6 已经有 Number.isNaN() 方法，将比 isNaN() 准确的多。
 
 ### + - * /
-```
+##### 1. What will be logged?
+```js
 let a = 10/3;
 a === 3;
 
-console.log(2 + '1');
-console.log('2' + 1);
+console.log(2 + '1');            // 21  
+console.log('2' + 1);            // 21
 
-console.log(2 / '1');
-console.log(2 - '1');
-console.log('2' - 1);
+console.log(2 / '1');            // 2
+console.log(2 - '1');            // 1
+console.log('2' - 1);            // 1
 
-console.log(-'1');
-console.log(+'-1');
+console.log('2' - 'a');          // NaN
+
+console.log(-'1');               // -1
+console.log(+'-1');              // -1
 ```
-
+##### 2. Does it equal? Why?
 ```js
 const n = 0.1 + 0.2;
 console.log(n === 0.3);
 ```
 
+### Check Types
+
+##### 1. How to check if is `object`?
+```js
+toString.call({});                      // "[object Object]"
+Object.prototype.toString.call(obj);    // "[object Object]"
+if (obj instanceof Object) {...}        // true
+```
+##### 2. How to check `array`?
+```js
+const arr = [];
+
+Array.isArray([]);                      // true, IE 9+
+toString.call([]);                      // "[object Array]"
+Object.prototype.toString.call(arr);    // "[object Array]"
+if (arr instanceof Array) {...}         // true
+```
+##### 3. How to check `null`, `undefined`, `NaN`?
+```js
+val === null;             // true (if it is null)
+val === undefined         // true (if it is undefined)
+Number.isNaN(NaN)         // true
+```
+
+---
+### References
+ 1. _Check if object is array?_ http://stackoverflow.com/questions/4775722/check-if-object-is-array
+ 2. 

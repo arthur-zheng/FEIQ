@@ -1,6 +1,6 @@
 #String
 
-### 1. Remove Space
+### 1. Remove Spaces
 
 1.1 How do you change " abc " to "abc"? (remove beginning and ending spaces)
 
@@ -11,13 +11,13 @@
 1.2 How do you change " a b c " to "abc"? (remove all spaces)
 
 ```js
-" abc ".trim(); // "abc"
+// TODO
 ```
 
 1.3 How do you change "a&nbsp;&nbsp;&nbsp;    b c" to "a b c" ? (Single space to multi-space)
 
 ```js
-" abc ".trim(); // "abc"
+// TODO
 ```
 
 ### 2. Implement `repeatify()`
@@ -43,4 +43,27 @@ String.prototype.repeatify = String.prototype.repeatify || function(times) {
     }
     return str.join('');
 };
+```
+### 3. Add space to String
+
+Write a function to add a space to string.
+```js
+String.prototype.addSpace = function() {
+ /* your code here */
+}
+"abc".addSpace; // "a b c"
+```
+One of the solution is using `Array.prototype.split()` and `String.prototype.join()`:
+```js
+String.prototype.addSpace = function() {
+ return this.split('').join(' ');
+}
+```
+
+### 4. Check Palindrome
+How to check if a string is palindrome?
+```js
+function isPalindrome(str) {
+    return (str == str.trim().toLowerCase().split('').reverse().join(''));
+}
 ```
