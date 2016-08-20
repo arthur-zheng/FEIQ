@@ -21,4 +21,5 @@
 * [Tricks](tricks-to-show-off.md)
 * [CSS](css.md)
 * [HTML](html.md)
+* [DOM API](dom-api.md)
 
