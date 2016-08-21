@@ -21,6 +21,19 @@ Answer is `Uncaught SyntaxError: Illegal break statement`. There's no built-in a
 ### 2. `every()` and `some()`
 What's the difference between `every()` and `some()`?
 
+### 3. `Slice()` and `splice()`
+##### There's no `splice()` for strings.
+```js
+Array.prototype.slice;           // exist
+String.prototype.slice;          // exist
+
+Array.prototype.splice;          // exist
+String.prototype.splice;         // undefined, use subString() or slice()
+```
+##### Use splice to insert items into array:
+```js
+//
+```
 
 ### 3. Implement Stack using Array
 How to use array as stack?
