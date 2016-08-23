@@ -21,7 +21,7 @@ Answer is `Uncaught SyntaxError: Illegal break statement`. There's no built-in a
 ### 2. `every()` and `some()`
 What's the difference between `every()` and `some()`?
 
-### 3. `Slice()` and `splice()`
+### 3. `slice()` and `splice()`
 ##### There's no `splice()` for strings.
 ```js
 Array.prototype.slice;           // exist
@@ -60,7 +60,7 @@ What will the following return?
 ```
 Answer is: `[1, 11, 2, 3]`.
 
-A little surprise right? Reason is `sort(comparator)`'s default comparator treats array items as `string`.
+A little surprising right? Reason is `sort(comparator)`'s default comparator treats array items as `string`.
 
 Fix:
 ```js
