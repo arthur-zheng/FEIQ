@@ -20,7 +20,8 @@
     * [All Others](write-your-own.md)
 * [Tricks](tricks-to-show-off.md)
 * [CSS](css.md)
+* [CSS Layout Coding](css-layout-coding.md)
 * [HTML](html.md)
 * [DOM API](dom-api.md)
-* [System Design](system-design.md)
+* CSS Layout Coding
 

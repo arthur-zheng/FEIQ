@@ -37,7 +37,7 @@ console.log(4*'a');
 // How to check NaN:
 Number.isNaN(NaN);    // true, only if is NaN
 
-// Be careful of pitfalls from isNaN():
+// Be careful of pitfalls from isNaN() (not Number.isNaN()):
 isNaN({});         // true
 isNaN('a');        // true
 typeof(NaN);       // "number"
@@ -75,7 +75,7 @@ console.log(n === 0.3);
 toString.call({});                      // "[object Object]"
 Object.prototype.toString.call(obj);    // "[object Object]"
 if (obj instanceof Object) {...}        // true
-```
+```    
 ##### 2. How to check `array`?
 ```js
 const arr = [];
