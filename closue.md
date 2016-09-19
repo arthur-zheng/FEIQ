@@ -17,7 +17,7 @@ Closure is created when the following happens:
 2. Inside `inner()`, some variable references to something **out of** `inner()`. Like `val`;
 3. The referenced outer variable `val` becomes a closure variable and will always exist until no more referenced.
 
-The above process called closure.
+The funciton `inner()` is called closure.
 
 ###1. Most Classical Question
 A common interview question starts like this:
