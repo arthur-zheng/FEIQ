@@ -1,12 +1,22 @@
 ###1. Use ~~ to Get Integer Part
 ```js
-~~1.1     // 1
-~~1.8     // 1
-~~(-1.1)  // -1
-~~(-1.8)  // -1
-~~-1.1    // -1
+// Math.floor() works for positive only
+Math.floor(-1.2);     // -1
 
-// Works like Java
+// Math.ceil() works for negative only
+Math.ceil(1.3);       //  2
+
+// Math.round() works fine
+Math.round(1.2);      //  1
+Math.round(-1.2);     // -1
+
+// a trick probably won't pass your code review
+// or JS
+~~1.1                 //  1
+~~1.8                 //  1
+~~(-1.1)              // -1
+~~(-1.8)              // -1
+~~-1.1                // -1
 const three = ~~(10/3);
 ```
 Because ~ operater will parse the number to integer before revert bits.
