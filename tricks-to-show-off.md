@@ -1,4 +1,5 @@
-###1. Use ~~ to Get Integer Part
+###1. Get Integer Part
+Firstly, the classic ways:
 ```js
 // Math.floor() works for positive only
 Math.floor(-1.2);     // -1
@@ -10,25 +11,36 @@ Math.ceil(1.3);       //  2
 Math.round(1.2);      //  1
 Math.round(-1.2);     // -1
 
-// a trick probably won't pass your code review
-// or JS
+// ParseInt()
+parseInt(1.2, 10);    // 1
+parseInt(-1.2, 10);   //-1
+```
+Then, tricks probably won't help you pass the code review:
+```js
 ~~1.1                 //  1
 ~~1.8                 //  1
 ~~(-1.1)              // -1
 ~~(-1.8)              // -1
 ~~-1.1                // -1
 const three = ~~(10/3);
-```
-Because ~ operater will parse the number to integer before revert bits.
-```
-// The following is not a perfect way,
-// for doesn't work with negative numbers
 
+// another trick
+console.log(1.2 | 0);   //  2
+console.log(-1.2 | 0);  // -1
 
+// another way using bit
+1.2>>0                // 1
+-1.2>>0               // -2
 ```
+The reason bit works is that internally, bit operation is like:
 
-###2. Use !! to parse Boolean
+1. convert the number from double-float to int
+2. then do bit operations, |(or),  ~(revert) etc
+3. then convert back to float
+
+###2. Get Boolean
 ```js
+// using !!
 !!5        // true
 !!true     // true
 !!''       // false
