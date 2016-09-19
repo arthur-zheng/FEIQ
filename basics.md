@@ -1,4 +1,4 @@
-### Declaration 1
+### Declaration
 ```js
 function test() {
     var a = b = 100;
