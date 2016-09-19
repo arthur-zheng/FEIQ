@@ -2,8 +2,6 @@
 
 This gitbook is a **collection** of the interview questions I have either came across in an real interview or seen during research.
 
-I wrote this because there isn't much stuff about front-end interview questions around on the web.
-
 Join this project: https://github.com/arthur-zheng/FEIQ
 
 Email: arthur.z.me 'at' gmail.com.
