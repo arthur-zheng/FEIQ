@@ -95,9 +95,19 @@ For each loop, a new `i` was created. And none of them is shared.
 })(1);
 ```
 ### 4. When do you need it? [none coding]
+
+http://javascriptissexy.com/oop-in-javascript-what-you-need-to-know/
 Create private variables:
 ```js
-//
+// private in the regular functions
+
+// private in constructors
+function Student(id = 0, age = 20) {
+    var studentId = id;
+    this.age = age;
+}
+const stu1 = new Student(10192, 20);
+stu1.studentId;        // undefined
 ```
 
 ### 5. What are the good and bad part of closure? [none coding]
