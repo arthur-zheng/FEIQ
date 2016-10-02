@@ -2,17 +2,16 @@
 
 inline / block (use case):
 
-http://www.impressivewebs.com/difference-block-inline-css/
-
  1. inline(only accepts left/right padding/margin, no top/bottom will take effect), block accepts all
  2. inline accepts vertical-align, blocks doesn’t
  3. block’s default width is 100%
  4. inline doesn’t accept width/height, block accepts all
  5. when a inline element is floated, it accepts width and height
 
-### 2. Different Ways to Hide an Element?
+Credit:
+http://www.impressivewebs.com/difference-block-inline-css/
 
-https://kitt.hodsden.org/blog/2013/07/5_3_ways_hide_element_css
+### 2. Different Ways to Hide an Element?
 
 ```css
 // More common
@@ -35,16 +34,17 @@ transform: translateX(-9999px);
 
 Click event. Element with `visibility: none`**doesn't** respond to click-event. But `opacity: 0` element does.
 
+Credit: https://kitt.hodsden.org/blog/2013/07/5_3_ways_hide_element_css
+
 ### 3. Selectors
 What are those selectors??
 ```css
 s
 ```
+Source: https://code.tutsplus.com/tutorials/the-30-css-selectors-you-must-memorize--net-16048
 
 ### 4. Centering
 for centering, the ultimate way is to use flex. However, to support some old browsers, we need some classical approaches.
-
-https://css-tricks.com/centering-css-complete-guide/
 
 ##### 1. Vertically align elements?
 1. for inline elements
@@ -131,6 +131,7 @@ vertical-align: center;
         position: absolute;
 }
 ```
+Source: https://css-tricks.com/centering-css-complete-guide/
 
 ### 5. Text Space
 
@@ -150,6 +151,8 @@ Answer:
 ```js
 The text 'a&amp;nbsp;' means 'space'    // use &amp; to escape ;
 ```
+Source: Presonal experience
+
 ---
 ### Reference:
 1. _How to write out HTML entity name (&amp;nbsp;, &amp;lt;, &amp;gt;, etc)?_ http://stackoverflow.com/questions/17427713/how-to-write-out-html-entity-name-nbsp-lt-gt-etc
