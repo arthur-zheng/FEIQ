@@ -131,8 +131,10 @@ vertical-align: center;
         position: absolute;
 }
 ```
+
 Source: https://css-tricks.com/centering-css-complete-guide/
 
+More about vertical using flex: https://philipwalton.github.io/solved-by-flexbox/demos/vertical-centering/
 ### 5. Text Space
 
 #####How to display space in HTML text? 
