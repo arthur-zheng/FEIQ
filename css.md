@@ -1,13 +1,14 @@
 ### 1. Difference between Block & Inline?
 
-inline / block (use case)
+inline / block (use case):
+
 http://www.impressivewebs.com/difference-block-inline-css/
 
- 1. inline(only accepts left/right padding/margin, no top/bottom), block accepts all.
+ 1. inline(only accepts left/right padding/margin, no top/bottom will take effect), block accepts all
  2. inline accepts vertical-align, blocks doesn’t
  3. block’s default width is 100%
- 4. if inline is float, will become block
- 5. inline doesn’t accept width/height (but accepts vertical-align
+ 4. inline doesn’t accept width/height, block accepts all
+ 5. when a inline element is floated, it accepts width and height
 
 ### 2. Different Ways to Hide an Element?
 
@@ -34,21 +35,103 @@ transform: translateX(-9999px);
 
 Click event. Element with `visibility: none`**doesn't** respond to click-event. But `opacity: 0` element does.
 
-### 3. Vertical align elements?
+### 3. Centering
+for centering, the ultimate way is to use flex. However, to support some old browsers, we need some classical approaches.
 
-### 4. Horizontal align Elements?
+https://css-tricks.com/centering-css-complete-guide/
 
-##### Follow-up: How about both vertical and horizontal align?
+##### 1. Vertically align elements?
+1. for inline elements
+```css
+vertical-align: center;
+```
+2. for block elements:
+    1. use flex if you can
+```css
+.parent   { display: flex }
+.children { align-self: center; }
+/* or */
+.parent   {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+}
+```
+    1. use negative margin if know the height
+```css
+.parent { position: relative; }    /* to work with children's absolute position */
+.children {
+            position: absolute;
+            height: 200px;
+            margin-top: -100px;
+            top: 50%;
+}
+```
+    2. use transform is dont know the height
+```css
+.parent { position: relative; }
+.children {
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+}
+```
 
+##### 2. Horizontally align Elements?
+1. for inline elements:
+```css
+.item-parent {
+        text-align: center;
+}
+```
+2. for block-level elements
+    1. use flex, supports multiple items as well:
+```css
+.parent {
+            display: flex;
+            justify-content: center;
+}
+```
+    2. otherwise use margin: 0
+```css
+.children { margin: 0 auto; }
+```
 
+##### 3. Follow-up: How about both vertical and horizontal align?
 
+1. Use flex:
+```css
+.parent {
+    display: flex;
+    justify-content: center;    /* this will center all items on the main axis */
+}
+.children {
+    align-self: center;
+}
+```
+2. Old fashion ways, the trick of 0
+```css
+/* https://www.smashingmagazine.com/2013/08/absolute-horizontal-vertical-centering-css/ */
+.children {
+        margin: auto;
+        position: absolute;
+        top: 0; left: 0; bottom: 0; right: 0;
+}
+```
+3. use translate
+```css
+.parent { position: relative; }
+.children {
+        position: absolute;
+}
+```
 
-### ?. Text Space
+### 4. Text Space
 
-#####How to display space in HTML text?
+#####How to display space in HTML text? 
 
-Answer: &amp;nbsp;
-
+`&nbsp;`
+Note: there is a ; at the bottom
 #####How to display the text `&nbsp;`?
 
 ```js
