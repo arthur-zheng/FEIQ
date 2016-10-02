@@ -23,5 +23,4 @@
 * [CSS Layout Coding](css-layout-coding.md)
 * [HTML](html.md)
 * [DOM API](dom-api.md)
-* CSS Layout Coding
 
