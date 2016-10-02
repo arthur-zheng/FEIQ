@@ -95,10 +95,10 @@ Number.isNaN(NaN)         // true
 ### `forEach()`, `for...in` and `for...of`
 What's the difference?
 
-1. forEach is only for Arrays.
-2. for...of is only for iterable objects, means cannt use it on objects.
-3. for...in is used for loop properties of objects. But it only loops enumerable properties. For example it doesn't touch an array's length property.
-4. for...of only work with collections.
+1. `forEach` is only for `Arrays`.
+2. `for...of` is only for `iterable objects`, means cannt use it on `objects`.
+3. `for...in` is used for loop properties of `objects`. But it only loops `enumerable properties`. For example it doesn't touch an array's `length` property.
+4. `for...of` only work with `collections`.
 5. loops cannot be stopped for all of the 3.
 
 ---

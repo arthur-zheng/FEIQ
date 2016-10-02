@@ -35,7 +35,13 @@ transform: translateX(-9999px);
 
 Click event. Element with `visibility: none`**doesn't** respond to click-event. But `opacity: 0` element does.
 
-### 3. Centering
+### 3. Selectors
+What are those selectors??
+```css
+s
+```
+
+### 4. Centering
 for centering, the ultimate way is to use flex. However, to support some old browsers, we need some classical approaches.
 
 https://css-tricks.com/centering-css-complete-guide/
@@ -126,7 +132,7 @@ vertical-align: center;
 }
 ```
 
-### 4. Text Space
+### 5. Text Space
 
 #####How to display space in HTML text? 
 
