@@ -1,13 +1,11 @@
 ### 1. Difference between Block & Inline?
-
-inline / block (use case):
-
+```
  1. inline(only accepts left/right padding/margin, no top/bottom will take effect), block accepts all
  2. inline accepts vertical-align, blocks doesn’t
  3. block’s default width is 100%
  4. inline doesn’t accept width/height, block accepts all
  5. when a inline element is floated, it accepts width and height
-
+```
 Credit:
 http://www.impressivewebs.com/difference-block-inline-css/
 
@@ -29,12 +27,13 @@ left:-9999px;
 position:absolute; ???
 transform: translateX(-9999px);
 ```
+Credit: https://kitt.hodsden.org/blog/2013/07/5_3_ways_hide_element_css
 
 #####Follow-up: What's the difference between `visibility: none` and `opacity: 0`?
 
 Click event. Element with `visibility: none`**doesn't** respond to click-event. But `opacity: 0` element does.
 
-Credit: https://kitt.hodsden.org/blog/2013/07/5_3_ways_hide_element_css
+Source: Personal experience
 
 ### 3. Selectors
 What are those selectors??
