@@ -88,3 +88,41 @@ function isPalindrome(str) {
     return (str == str.trim().toLowerCase().split('').reverse().join(''));
 }
 ```
+
+### 5. All .toString()
+Difference between all the `toString()`, like:
+```js
+const arr = [1,2,3],
+      obj = {},
+      num = 1,
+      nul = null,
+      undef;
+
+// for arrays
+// Array.prototype.toString is more useful
+Array.prototype.toString.call(arr);    // '1,2,3'
+Object.prototype.toString.call(arr);   // '[object Array]'
+Number.prototype.toString.call(arr);   // error
+
+// Array.prototype.toString works with objects
+Array.prototype.toString.call(obj);    // '[object Object]'
+Object.prototype.toString.call(obj);   // '[object Object]'
+Number.prototype.toString.call(obj);   // error
+
+// Number.prototype.toString seems only work for numbers
+Array.prototype.toString.call(num);    // '[object Number]'
+Object.prototype.toString.call(num);   // '[object Number]'
+Number.prototype.toString.call(num);   // '12'
+
+// Array.prototype.toString seems only work with array/object
+Array.prototype.toString.call(nul);    // error
+Object.prototype.toString.call(nul);   // '[object Null]'
+Number.prototype.toString.call(nul);   // error
+
+// Object.prototype.toString works with anything
+Array.prototype.toString.call(undef);  // error
+Object.prototype.toString.call(undef); // '[object Undefined]'
+Number.prototype.toString.call(undef); // error
+```
+
+
