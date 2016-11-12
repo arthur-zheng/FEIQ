@@ -17,7 +17,12 @@
 1.3 How do you change "a&nbsp;&nbsp;&nbsp;    b c" to "a b c" ? (Single space to multi-space)
 
 ```js
-// TODO
+// failed: replace doesnt work recursively
+" a    b c".replace(' ', '').split('').join(' ');
+
+// Using Regex
+" a    b c".replace( /\s+/g, ' ' );
+// Ref: http://stackoverflow.com/questions/1981349/regex-to-replace-multiple-spaces-with-a-single-space
 ```
 
 ### 2. Implement `repeatify()`
@@ -44,6 +49,15 @@ String.prototype.repeatify = String.prototype.repeatify || function(times) {
     return str.join('');
 };
 ```
+Another faster approach using binary search
+```js
+// 
+```
+A tricky way:
+```js
+// Ref: 
+```
+
 ### 3. Add space to String
 
 Write a function to add a space to string.
@@ -51,7 +65,7 @@ Write a function to add a space to string.
 String.prototype.addSpace = function() {
  /* your code here */
 }
-"abc".addSpace; // "a b c"
+"abc".addSpace(); // "a b c"
 ```
 One of the solution is using `Array.prototype.split()` and `String.prototype.join()`:
 ```js
