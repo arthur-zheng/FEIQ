@@ -11,7 +11,7 @@
 1.2 How do you change " a b c " to "abc"? (remove all spaces)
 
 ```js
-// TODO
+" a b c ".replace(' ', '');
 ```
 
 1.3 How do you change "a&nbsp;&nbsp;&nbsp;    b c" to "a b c" ? (Single space to multi-space)
