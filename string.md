@@ -51,13 +51,20 @@ String.prototype.repeatify = String.prototype.repeatify || function(times) {
 ```
 Another faster approach using binary search
 ```js
-// 
+//
+String.prototype.repeat = function (times) {
+    if(times === 1) return this;
+    var halfString = String.prototype.repeat.call(this, Math.floor(times/2));
+    return half + half + (times & 1 ? this : '');
+}
 ```
 A tricky way:
 ```js
-// Ref: 
+// Ref: http://stackoverflow.com/questions/202605/repeat-string-javascript
+String.prototype.repeat = function(num) {
+    return new Array(num + 1).join(this);
+}
 ```
-
 ### 3. Add space to String
 
 Write a function to add a space to string.
