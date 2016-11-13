@@ -15,4 +15,4 @@ http://stackoverflow.com/questions/5574207/html-dom-which-events-do-not-bubble
 ```js
 event.preventDefault();
 ```
-
+Ref: http://stackoverflow.com/questions/10276133/how-to-disable-html-links
