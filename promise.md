@@ -1,5 +1,6 @@
 ### Promise Basics
-
+Basic promise coding:
+https://davidwalsh.name/promises
 
 ### Promise.all()
 
