@@ -20,6 +20,8 @@ This chapter focuses on native DOM APIs.
 ```js
 //
 ```
+http://harttle.com/2015/10/01/javascript-dom-api.html
+
 
 ### Create a function that, given a DOM Element on the page, will visit the element itself and all of its descendents (not just its immediate children). For each element visited, the function should pass that element to a provided callback function.
 The arguments to the function should be:
