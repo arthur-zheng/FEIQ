@@ -31,7 +31,12 @@ function Traverse(p_element,p_callback) {
 ### Other DOM API
 http://ourjs.com/detail/573a9cec88feaf2d031d24fc
 
+### Node Object vs Element Object?
+http://stackoverflow.com/questions/9979172/difference-between-node-object-and-element-object
 
+### `textContent` vs `createTextNode()`?
+They are the same except: for security perspective,`createTextNode()`will escape string and show them as they are.
+http://stackoverflow.com/questions/31643204/textnode-or-textcontent
 
 ---
 ### References:
