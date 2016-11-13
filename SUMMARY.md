@@ -18,11 +18,12 @@
     * [Map, WeakMap](map--set.md)
     * [Promise](promise.md)
     * [All Others](write-your-own.md)
+    * [Number](number.md)
 * [Tricks](tricks-to-show-off.md)
 * [CSS](css.md)
 * [CSS Layout Coding](css-layout-coding.md)
 * [HTML](html.md)
-* [DOM API](dom-api.md)
+* [DOM](dom-api.md)
 * [Random Coding](javascript-coding.md)
 * [Accessibility](accessibility.md)
 * System Design

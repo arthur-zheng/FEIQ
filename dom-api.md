@@ -1,4 +1,4 @@
-# DOM API
+# DOM
 A lof of interviewer like to ask you how to manipulate DOM nodes. Sometimes using 3rd party lib such as jQuery is allowed, sometimes it is not.
 
 This chapter focuses on native DOM APIs.
@@ -18,6 +18,14 @@ function Traverse(p_element,p_callback) {
         Traverse(list[i],p_callback); // recursive call
     }
 }
+```
+
+### Give all elements inside html DOM a different color
+```js
+// Need verify
+[].forEach.call($('*'), function(ele) {
+    ele.style.outline = "1px solid #" + (~~(Math.random() * (1 << 24))).toString(16);
+});
 ```
 
 ### Other DOM API
