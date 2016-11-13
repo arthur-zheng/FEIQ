@@ -77,6 +77,9 @@ So, question is, how to tell if `oldValNotExist` exist or not without throwing a
 // use typeof
 if (typeof oldValNotExist !== 'undefined') { ... }
 // no error will be thrown
+
+// btw, dont forget this:
+typeof null === 'object'        // true
 ```
 Ref.: http://bonsaiden.github.io/JavaScript-Garden/#function.arguments
 
