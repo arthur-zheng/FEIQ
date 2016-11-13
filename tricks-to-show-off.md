@@ -60,6 +60,27 @@ isOdd(1);             // true
 12 & 1 === 0          // 0, instead of true
 (12 & 1) === 0        // true
 ```
+
+### 4.How to detect a variable is declared or not?
+We know that if we reference an none-exists key inside a object, it returns `undefined`.
+```js
+const obj = {};
+obj.noneExist;    // undefined
+```
+And we also know that if we are trying to access an variable that is not defined, it returns an error:
+```js
+let newValue = oldValNotExist;
+// Uncaught ReferenceError: oldValNotExist is not defined...
+```
+So, question is, how to tell if `oldValNotExist` exist or not without throwing any error?
+```js
+// use typeof
+if (typeof oldValNotExist !== 'undefined') { ... }
+// no error will be thrown
+```
+Ref.: http://bonsaiden.github.io/JavaScript-Garden/#function.arguments
+
+
 ---
 ### References:
 1. 装逼指南
