@@ -3,6 +3,24 @@ A lof of interviewer like to ask you how to manipulate DOM nodes. Sometimes usin
 
 This chapter focuses on native DOM APIs.
 
+### 1. Basic manipulation to make sure you are familar with DOM API
+1.1 Create add some text into the `<h1 id='target'></h1>`
+```js
+//
+```
+1.2 Create a span with text content `hello` and append it to the `<div id='target'></div>`
+```js
+//
+```
+1.3 As shown bellow, a `<ul>` has multiple `<li>`, add event to all of the `<li>` so that when it's clicked, alerts the index of it.
+```js
+//
+```
+1.4 Count number of a given node's children
+```js
+//
+```
+
 ### Create a function that, given a DOM Element on the page, will visit the element itself and all of its descendents (not just its immediate children). For each element visited, the function should pass that element to a provided callback function.
 The arguments to the function should be:
 ```js
