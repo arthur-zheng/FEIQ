@@ -19,7 +19,7 @@
     * [Promise](promise.md)
     * [All Others](write-your-own.md)
     * [Number](number.md)
-* [HTML](html.md)
+* [HTML, Events](html.md)
 * [CSS](css.md)
 * [CSS Layout Coding](css-layout-coding.md)
 * [DOM](dom-api.md)

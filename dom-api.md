@@ -1,4 +1,5 @@
 # DOM
+
 A lof of interviewer like to ask you how to manipulate DOM nodes. Sometimes using 3rd party lib such as jQuery is allowed, sometimes it is not.
 
 This chapter focuses on native DOM APIs.
@@ -48,7 +49,7 @@ function Traverse(p_element,p_callback) {
 });
 ```
 
-### Other DOM API
+### You dont need jQuery (sometimes)
 http://ourjs.com/detail/573a9cec88feaf2d031d24fc
 
 ### Node Object vs Element Object?
