@@ -6,7 +6,7 @@
     * [this - Basics](this.md)
     * [this - In Real World](this---in-real-word.md)
     * [Hoisting](hoisting.md)
-    * [Closue](closue.md)
+    * [Closure](closue.md)
     * [Event Loop](event-loop.md)
 * [\[Object\]](object.md)
     * [Object](object.md)
