@@ -16,7 +16,7 @@ Same-origin must have the same:
 3. port number (4080 vs 80)
 
 ##### 1.2 We can use multiple approaches to get around same-origin policy, such as:
-1. JSONP (http://stackoverflow.com/questions/3839966/can-anyone-explain-what-jsonp-is-in-layman-terms)
+1. JSONP (Only support `GET`, more info: http://stackoverflow.com/questions/3839966/can-anyone-explain-what-jsonp-is-in-layman-terms)
 2. Server delegation (server does the request to different origin)
 3. WebSocket (WebSocket have no same-origin policy)
 4. CORS (Cross-Origin Resource Sharing)
