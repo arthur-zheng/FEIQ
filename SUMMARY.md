@@ -24,7 +24,8 @@
 * [CSS Layout Coding](css-layout-coding.md)
 * [HTML](html.md)
 * [DOM](dom-api.md)
-* [Random Coding](javascript-coding.md)
+* [Coding\/Algorithm](javascript-coding.md)
 * [Accessibility](accessibility.md)
-* System Design
+* [System Design](system-design.md)
+* [Random](random.md)
 
