@@ -3,6 +3,7 @@
 ### What is prototype and what is constructor?
 
 
+Ref: http://tobyho.com/2010/11/22/javascript-constructors-and/
 
 ### Some prototype and inheritance coding:
 Write a `Person` class that we can specify `name`:

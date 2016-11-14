@@ -21,10 +21,12 @@ This chapter focuses on native DOM APIs.
 ```js
 //
 ```
-http://harttle.com/2015/10/01/javascript-dom-api.html
+Ref: http://harttle.com/2015/10/01/javascript-dom-api.html
 
+You dont need jQuery: http://ourjs.com/detail/573a9cec88feaf2d031d24fc
 
-### Create a function that, given a DOM Element on the page, will visit the element itself and all of its descendents (not just its immediate children). For each element visited, the function should pass that element to a provided callback function.
+### Create a function...
+That, given a DOM Element on the page, will visit the element itself and all of its descendents (not just its immediate children). For each element visited, the function should pass that element to a provided callback function.
 The arguments to the function should be:
 ```js
 a DOM element
@@ -40,8 +42,8 @@ function Traverse(p_element,p_callback) {
     }
 }
 ```
-
-### Give all elements inside html DOM a different color
+### Create a function...
+Give all elements inside html DOM a different color
 ```js
 // Need verify
 [].forEach.call($('*'), function(ele) {
@@ -49,11 +51,11 @@ function Traverse(p_element,p_callback) {
 });
 ```
 
-### You dont need jQuery (sometimes)
-http://ourjs.com/detail/573a9cec88feaf2d031d24fc
-
-### Node Object vs Element Object?
+### `Node Object` vs `Element Object`?
 http://stackoverflow.com/questions/9979172/difference-between-node-object-and-element-object
+
+### `children` vs `childNodes`?
+http://stackoverflow.com/questions/7935689/what-is-the-difference-between-children-and-childnodes-in-javascript
 
 ### `textContent` vs `createTextNode()`?
 They are the same except: for security perspective,`createTextNode()`will escape string and show them as they are.
