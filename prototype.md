@@ -53,4 +53,4 @@ console.log(student1 instanceof Student); // true
 
 // More notes please check the ref link bellow
 ```
-Ref/from: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Introduction_to_Object-Oriented_JavaScript
+Source: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Introduction_to_Object-Oriented_JavaScript
