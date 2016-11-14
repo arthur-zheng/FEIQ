@@ -14,6 +14,13 @@ Same-origin must have the same:
 2. protocol (http vs https)
 3. port number (4080 vs 80)
 
+PS: A page may change its own origin with some limitations. A script can set the value of document.domain to its current domain or a superdomain of its current domain. If it sets it to a superdomain of its current domain, the shorter domain is used for subsequent origin checks.
+
+For example, assume a script in the document at http://store.company.com/dir/other.html executes the following statement: Like:
+```js
+document.domain = "company.com";
+```
+More info:
 Ref: https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy
 
 ### 2. How to get around of same-origin policy?
