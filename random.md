@@ -20,3 +20,8 @@ Same-origin must have the same:
 2. Server delegation (server does the request to different origin)
 3. WebSocket (WebSocket have no same-origin policy)
 4. CORS (Cross-Origin Resource Sharing)
+
+### What will happen when you type in a URL and hit `enter`?
+http://stackoverflow.com/questions/2092527/what-happens-when-you-type-in-a-url-in-browser
+
+
