@@ -2,6 +2,18 @@
 
 In a lot of interviews, you will be asked to implement some features.
 
+### 1. Math.random()
+What is it for and how to use it?
+
+`Math.random` returns a number `[0,1)`
+```js
+// Generate a number between 1-100
+// [1,100)
+
+```
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
+
+
 ### 1. Implement `bind()`
 Implement your own `bind()`:
 ```js
