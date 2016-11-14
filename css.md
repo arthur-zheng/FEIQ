@@ -134,7 +134,14 @@ vertical-align: center;
 Source: https://css-tricks.com/centering-css-complete-guide/
 
 More about vertical using flex: https://philipwalton.github.io/solved-by-flexbox/demos/vertical-centering/
-### 5. Text Space
+
+### 5. What is responsive design? How to use it?
+Media Query:
+
+https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries
+
+
+### 6. Text Space
 
 #####How to display space in HTML text? 
 
