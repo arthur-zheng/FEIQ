@@ -1,7 +1,7 @@
 # Prototype
 
 ### What is prototype and what is constructor?
-![](/assets/Screen Shot 2016-11-13 at 8.50.01 PM.png)
+![](/assets/Screen Shot 2016-11-13 at 8.55.16 PM.png)
 
 Ref: http://tobyho.com/2010/11/22/javascript-constructors-and/
 
