@@ -1,17 +1,18 @@
+# HTML and Browser Event
+
 ### 1. What is sementric html? Why do some people think it's useful?
 https://www.wikiwand.com/en/Semantic_HTML
 
-### 2. What is event bubbling?
+### 2. What is event bubbling and capturing?
+Ref: http://www.quirksmode.org/js/events_order.html
 
-##### 2.1 What event doesn't bubble?
+### 3 What event doesn't bubble?
 
 Any events specific to one element do not bubble: submit, focus, blur, load, unload, change, reset, scroll, most of the DOM events (DOMFocusIn, DOMFocusOut, DOMNodeRemoved, etc), mouseenter, mouseleave, etc
-http://stackoverflow.com/questions/5574207/html-dom-which-events-do-not-bubble
 
-### 3. What is event capturing?
+Ref: http://stackoverflow.com/questions/5574207/html-dom-which-events-do-not-bubble
 
-
-### 4. How to cancel a <a> tag's event using coding?
+### 4. How to cancel a `<a>` event using coding?
 ```js
 event.preventDefault();
 ```
