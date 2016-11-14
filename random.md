@@ -24,4 +24,8 @@ Same-origin must have the same:
 ### What will happen when you type in a URL and hit `enter`?
 http://stackoverflow.com/questions/2092527/what-happens-when-you-type-in-a-url-in-browser
 
+### Get vs Post?
+http://stackoverflow.com/questions/3477333/what-is-the-difference-between-post-and-get
 
+### Put vs Post in Restful API?
+http://stackoverflow.com/questions/630453/put-vs-post-in-rest
