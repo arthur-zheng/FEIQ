@@ -4,8 +4,7 @@ function test() {
     var a = b = 100;
 }
 test();
-    console.log(b);        // ?
-}
+console.log(b);        // ?
 ```
 The answer is 100 instead of `undefined`. Following is what actually happened:
 ```js
